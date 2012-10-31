@@ -1,5 +1,10 @@
 Partiude::Application.routes.draw do
+  devise_for :users
 
+  devise_for :installs
+
+  root :to => 'home#index'
+   
   resources :instituicaos
 
   # The priority is based upon order of creation:

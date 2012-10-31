@@ -1,3 +1,3 @@
 class Instituicao < ActiveRecord::Base
-  attr_accessible :codigos, :logo, :nome
+  attr_accessible :logo, :nome
 end
