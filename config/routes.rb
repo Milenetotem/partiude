@@ -1,5 +1,4 @@
 Partiude::Application.routes.draw do
-  get "sexo/titulo:string"
 
   resources :instituicaos
 
