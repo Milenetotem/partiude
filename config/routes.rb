@@ -1,4 +1,5 @@
-Partiude::Application.routes.draw do
+Partiude::Application.routes.draw do  
+
   devise_for :users
 
   devise_for :installs
