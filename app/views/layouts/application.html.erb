@@ -12,10 +12,12 @@
  <p class="alert"><%= alert %></p>
  <div> 
  	<% if user_signed_in? %>
- 		Signed in as <%= current_user.email %> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+ 		Signed in as <%= current_user.name %>,<%= current_user.email %> <%= current_user.gender %>, <%= current_user.location %><%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
  		<% else %>
- 		Faça login
+ 		<%= link_to "Sign_up", new_user_registration_path %> ou <%= link_to "Sign in", new_user_session_path %>
+ 		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
  	<% end %>
+ 	
  </div>
        
 <%= yield %>

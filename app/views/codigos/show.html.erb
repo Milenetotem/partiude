@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Codigo:</b>
+  <%= @codigo.codigo %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @codigo.user_id %>
+</p>
+
+<p>
+  <b>Empresa:</b>
+  <%= @codigo.empresa_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_codigo_path(@codigo) %> |
+<%= link_to 'Back', codigos_path %>

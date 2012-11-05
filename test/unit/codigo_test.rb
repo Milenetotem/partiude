@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InstituicaoTest < ActiveSupport::TestCase
+class CodigoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

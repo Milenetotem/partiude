@@ -1,13 +1,17 @@
 Partiude::Application.routes.draw do  
 
-  devise_for :users
+  resources :meio_transportes
+
+  resources :codigos
+
+  resources :empresas
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_for :installs
 
   root :to => 'home#index'
    
-  resources :instituicaos
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

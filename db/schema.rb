@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101125217) do
+ActiveRecord::Schema.define(:version => 20121105171055) do
+
+  create_table "codigos", :force => true do |t|
+    t.string   "codigo"
+    t.integer  "user_id"
+    t.integer  "empresa_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "empresas", :force => true do |t|
+    t.string   "logo"
+    t.string   "nome"
+    t.integer  "codigo_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "installs", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -30,9 +48,11 @@ ActiveRecord::Schema.define(:version => 20121101125217) do
   add_index "installs", ["email"], :name => "index_installs_on_email", :unique => true
   add_index "installs", ["reset_password_token"], :name => "index_installs_on_reset_password_token", :unique => true
 
-  create_table "instituicaos", :force => true do |t|
+  create_table "meio_transportes", :force => true do |t|
+    t.string   "icone"
     t.string   "nome"
-    t.string   "logo"
+    t.integer  "grupo_id"
+    t.integer  "trajeto_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -50,9 +70,15 @@ ActiveRecord::Schema.define(:version => 20121101125217) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "facebook_id"
+    t.string   "name"
+    t.string   "image"
+    t.string   "location"
+    t.string   "gender"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
