@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  trajeto_usuario_origem_id: 1
+  trajeto_usuario_destino_id: 1
+
+two:
+  trajeto_usuario_origem_id: 1
+  trajeto_usuario_destino_id: 1

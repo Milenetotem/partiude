@@ -1,0 +1,19 @@
+<%= simple_form_for @grupo do |f| %>
+  
+  <div class="field">
+    <%= f.input :nome %>
+  </div>
+  <h3> Trajeto</h3>
+  
+  <div id="trajeto">
+    <%= f.simple_fields_for :trajeto_usuario do |trajeto_usuario| %>
+        <%= f.input :end_origem %> 
+        <%= f.input :end_destino %> 
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>
+

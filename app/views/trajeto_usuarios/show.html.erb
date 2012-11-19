@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Trajeto usuario origem:</b>
+  <%= @trajeto_usuario.end_origem %>
+  <%= @trajeto_usuario.lat_origem %>
+  <%= @trajeto_usuario.long_origem %>
+</p>
+
+<p>
+  <b>Trajeto usuario destino:</b>
+  <%= @trajeto_usuario.end_destino %>
+
+</p>
+
+
+<%= link_to 'Edit', edit_trajeto_usuario_path(@trajeto_usuario) %> |
+<%= link_to 'Back', trajeto_usuarios_path %>

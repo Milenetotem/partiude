@@ -1,0 +1,2 @@
+module TrajetoGruposHelper
+end

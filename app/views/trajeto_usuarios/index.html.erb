@@ -1,0 +1,25 @@
+<h1>Listing trajeto_usuarios</h1>
+
+<table>
+  <tr>
+    <th>Trajeto usuario origem</th>
+    <th>Trajeto usuario destino</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @trajeto_usuarios.each do |trajeto_usuario| %>
+  <tr>
+    <td><%= trajeto_usuario.end_origem %></td>
+    <td><%= trajeto_usuario.end_destino %></td>
+    <td><%= link_to 'Show', trajeto_usuario %></td>
+    <td><%= link_to 'Edit', edit_trajeto_usuario_path(trajeto_usuario) %></td>
+    <td><%= link_to 'Destroy', trajeto_usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trajeto usuario', new_trajeto_usuario_path %>

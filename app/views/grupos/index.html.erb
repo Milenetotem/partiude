@@ -1,0 +1,29 @@
+<h1>Listing grupos</h1>
+
+<table>
+  <tr>
+    <th>Trajeto grupo</th>
+    <th>User</th>
+    <th>Meio transporte</th>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grupos.each do |grupo| %>
+  <tr>
+    <td><%= grupo.trajeto_grupo_id %></td>
+    <td><%= grupo.user_id %></td>
+    <td><%= grupo.meio_transporte_id %></td>
+    <td><%= grupo.nome %></td>
+    <td><%= link_to 'Show', grupo %></td>
+    <td><%= link_to 'Edit', edit_grupo_path(grupo) %></td>
+    <td><%= link_to 'Destroy', grupo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grupo', new_grupo_path %>

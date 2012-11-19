@@ -4,10 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
-belongs_to :empresa
+  belongs_to :empresa
   has_many :codigo
+  has_many :trajeto_usuario
+  has_many :grupo
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :gender, :name, :location, :image
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :gender, :name, :location, :image, :trajeto_usuario_id, :grupo_id
 
   def self.new_with_session(params, session)
     super.tap do |user|

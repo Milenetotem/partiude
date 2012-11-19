@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  trajeto_grupo_id: 1
+  user_id: 1
+  meio_transporte_id: 1
+  nome: MyString
+
+two:
+  trajeto_grupo_id: 1
+  user_id: 1
+  meio_transporte_id: 1
+  nome: MyString

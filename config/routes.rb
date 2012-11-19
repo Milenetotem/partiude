@@ -1,5 +1,11 @@
 Partiude::Application.routes.draw do  
 
+  resources :grupos
+
+  resources :trajeto_grupos
+
+  resources :trajeto_usuarios
+
   resources :meio_transportes
 
   resources :codigos

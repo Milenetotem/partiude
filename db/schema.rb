@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105171055) do
+ActiveRecord::Schema.define(:version => 20121119184655) do
 
   create_table "codigos", :force => true do |t|
     t.string   "codigo"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(:version => 20121105171055) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "grupos", :force => true do |t|
+    t.integer  "trajeto_grupo_id"
+    t.integer  "user_id"
+    t.integer  "meio_transporte_id"
+    t.string   "nome"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "installs", :force => true do |t|
@@ -57,6 +66,27 @@ ActiveRecord::Schema.define(:version => 20121105171055) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "trajeto_grupos", :force => true do |t|
+    t.integer  "trajeto_usuario_id"
+    t.integer  "grupo_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "trajeto_usuarios", :force => true do |t|
+    t.integer  "status_trajeto_id"
+    t.integer  "user_id"
+    t.integer  "meio_transporte_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "end_origem"
+    t.string   "end_destino"
+    t.float    "long_origem"
+    t.float    "lat_origem"
+    t.float    "long_destino"
+    t.float    "lat_destino"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -75,6 +105,8 @@ ActiveRecord::Schema.define(:version => 20121105171055) do
     t.string   "image"
     t.string   "location"
     t.string   "gender"
+    t.integer  "trajeto_usuario_id"
+    t.integer  "grupo_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
