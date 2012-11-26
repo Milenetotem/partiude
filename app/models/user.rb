@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   belongs_to :empresa
   has_many :codigo
   has_many :trajeto_usuario
-  has_many :grupo
+  has_many :memberships
+  has_many :grupos, :through => :memberships
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :gender, :name, :location, :image, :trajeto_usuario_id, :grupo_id
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119184655) do
+ActiveRecord::Schema.define(:version => 20121126132804) do
 
   create_table "codigos", :force => true do |t|
     t.string   "codigo"
@@ -33,10 +33,9 @@ ActiveRecord::Schema.define(:version => 20121119184655) do
   create_table "grupos", :force => true do |t|
     t.integer  "trajeto_grupo_id"
     t.integer  "user_id"
-    t.integer  "meio_transporte_id"
     t.string   "nome"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "installs", :force => true do |t|
@@ -61,7 +60,16 @@ ActiveRecord::Schema.define(:version => 20121119184655) do
     t.string   "icone"
     t.string   "nome"
     t.integer  "grupo_id"
-    t.integer  "trajeto_id"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.integer  "trajeto_usuario_id"
+    t.boolean  "limite",             :default => false
+    t.decimal  "limite_qtd"
+  end
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "grupo_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -85,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20121119184655) do
     t.float    "lat_origem"
     t.float    "long_destino"
     t.float    "lat_destino"
+    t.integer  "grupo_id"
   end
 
   create_table "users", :force => true do |t|

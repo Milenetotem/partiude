@@ -1,4 +1,5 @@
 class GruposController < ApplicationController
+  before_filter :authenticate_user!
   # GET /grupos
   # GET /grupos.json
   def index
@@ -25,8 +26,12 @@ class GruposController < ApplicationController
   # GET /grupos/new.json
   def new
     @grupo = Grupo.new
-    
-     
+    @grupo.trajeto_usuario.build
+    membership = Membership.new  
+    membership.user_id = current_user.id  
+    membership.grupo_id = @grupo.id  
+    membership.save
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @grupo }

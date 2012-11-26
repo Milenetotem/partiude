@@ -1,4 +1,4 @@
-<%= form_for(@meio_transporte) do |f| %>
+<%= simple_form_for(@meio_transporte) do |f| %>
   <% if @meio_transporte.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@meio_transporte.errors.count, "error") %> prohibited this meio_transporte from being saved:</h2>
@@ -12,17 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :icone %><br />
-    <%= f.text_field :icone %>
+    <%= f.input :icone %>
   </div>
   <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.input :nome %>
   </div>
   <div class="field">
-    <%= f.label :grupo_id %><br />
-    <%= f.number_field :grupo_id %>
-  </div>
+    <%= f.input :limite %>
+  </div> 
+     <%= f.input :limite_qtd, :as => :decimal %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

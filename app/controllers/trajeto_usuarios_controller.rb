@@ -24,6 +24,7 @@ class TrajetoUsuariosController < ApplicationController
   # GET /trajeto_usuarios/new
   # GET /trajeto_usuarios/new.json
   def new
+    @trajeto_usuario = current_user.trajeto_usuarios.build
     @trajeto_usuario = TrajetoUsuario.new
 
     respond_to do |format|
@@ -40,7 +41,10 @@ class TrajetoUsuariosController < ApplicationController
   # POST /trajeto_usuarios
   # POST /trajeto_usuarios.json
   def create
-    @trajeto_usuario = TrajetoUsuario.new(params[:trajeto_usuario])
+    #@trajeto_usuario = TrajetoUsuario.new(params[:trajeto_usuario])
+    @trajeto_usuario.user == current_user
+
+    @trajeto_usuario = current_user.trajeto_usuarios.new(params[:trajeto_usuario])
 
     respond_to do |format|
       if @trajeto_usuario.save
