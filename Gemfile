@@ -6,10 +6,14 @@ gem 'pg'
 # gem 'paperclip'
 # gem 'validates_timeliness'
 gem 'jquery-rails'
+gem 'devise'
 
 group :test do
-  gem 'rspec'
   gem 'sqlite3'
+end
+
+group :test, :development do
+  gem 'rspec-rails'
 end
 
 group :assets do
