@@ -1,0 +1,64 @@
+<div class="container twelve columns">
+  <div class="row">
+    <div class="eight columns offset-by-one">
+      <div class="row">
+        <div class="twelve columns" >
+          <%= form_for(@route, :builder => RouteFormBuilder, :html => {:class => "custom"}) do |f| %>
+            <fieldset  id="add-trajeto">
+              <legend><%= "#{I18n.t(:new)} #{Route.model_name.human}" %></legend>
+              <div class="row">
+                <div class="six columns">
+                  <%= f.label :name %>
+                  <%= f.text_field :name, :class => "radius twelve middle" %>
+                </div>
+                <%= f.transport_type_field %>
+              </div>
+              <div class="row">
+                <div class="six columns">
+                  <%= f.text_field :origin, :class => "radius twelve", :placeholder=>"#{Route.human_attribute_name(:origin)}" %>
+                </div>
+                <div class="six columns">
+                  <%= f.text_field :destiny, :class => "radius twelve", :placeholder=>"#{Route.human_attribute_name(:destiny)}" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="four columns">
+                  <%= f.text_field :day, :class => "radius twelve", :placeholder=>"#{Route.human_attribute_name(:day)}" %>
+                </div>
+                <div class="four columns">
+                  <%= f.text_field :hour, :class => "radius twelve", :placeholder=>"#{Route.human_attribute_name(:hour)}" %>
+                </div>
+                <div class="four columns">
+                  <select style="display:none;" id="period">
+                    <option>Só hoje</option>
+                    <option>Diário</option>
+                    <option>Semanal</option>
+                    <option>Mensal</option>
+                  </select>
+                  <div class="custom dropdown expand">
+                    <a href="#" class="current">
+                      Selecione
+                    </a>
+                    <a href="#" class="selector"></a>
+                    <ul>
+                      <li>Só hoje</li>
+                      <li>Diário</li>
+                      <li>Semanal</li>
+                      <li>Mensal</li>
+                    </ul>
+                  </div>
+                  <%= f.repeat_in_field %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="four columns offset-by-eight">
+                  <%= f.submit :class=>"radius button twelve", :value=>"Adicionar" %>
+                </div>
+              </div>
+            </fieldset>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

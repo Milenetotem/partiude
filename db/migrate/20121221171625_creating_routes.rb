@@ -1,7 +1,15 @@
 class CreatingRoutes < ActiveRecord::Migration
-  def up
-  end
+  def change
+    create_table(:routes) do |t|
+      t.string :name, :null => false
+      t.string :origin, :null => false
+      t.string :destiny, :null => false
+      t.string :transport_type, :default => 'walking'
+      t.datetime :day, :null => false
+      t.datetime :hour, :null => false
+      t.string :repeat_in, :default => "day"
 
-  def down
+      t.timestamps
+    end
   end
 end

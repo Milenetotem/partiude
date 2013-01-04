@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.10'
 
 gem 'pg'
+# gem 'foreigner'
 # gem 'paperclip'
-# gem 'validates_timeliness'
+gem 'validates_timeliness'
 gem 'jquery-rails'
 gem 'devise'
+gem 'geocoder'
+gem 'enumerate_it'
 
 group :test do
   gem 'sqlite3'
@@ -18,8 +21,7 @@ end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
-  # Add these gems
+  gem 'uglifier'
   gem 'compass-rails'
   gem 'zurb-foundation'
 end
