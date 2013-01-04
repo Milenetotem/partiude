@@ -63,48 +63,48 @@ h1, h2, h3, h4 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.carro {
-  background: image-url("balao-carro.png") no-repeat;
-  min-width: 40px;
-  min-height: 40px;
+
+
+@mixin transport-type-radio {
+  min-width: 45px;
+  min-height: 45px;
   display: block;
 }
-.carro:hover {
-  background: image-url("balao-colorido-carro.png") no-repeat;
+
+.carro {
+  @include transport-type-radio;
+  background: image-url("balao-carro.png") no-repeat;
+  &:hover {
+    background: image-url("balao-colorido-carro.png") no-repeat;
+  }
 }
 
-.carro .selected {
+.carro.selected {
   background: image-url("balao-colorido-carro.png") no-repeat;
 }
 
 .ape{
+  @include transport-type-radio;
   background: image-url("balao-ape.png") no-repeat;
-  min-width: 40px;
-  min-height: 40px;
-  display: block;
+  &:hover {
+    background: image-url("balao-colorido-ape.png") no-repeat;
+  }
 }
 
-.ape:hover {
-  background: image-url("balao-colorido-ape.png") no-repeat;
-}
-
-.ape .selected {
-  background: image-url("balao-colorido-ape.png") no-repeat;
+.ape.selected {
+  background: image-url("balao-colorido-ape.png") no-repeat !important;
 }
 
 .bicicleta{
+  @include transport-type-radio;
   background: image-url("balao-bicicleta.png") no-repeat;
-  min-width: 40px;
-  min-height: 40px;
-  display: block;
+  &:hover {
+    background: image-url("balao-colorido-bicicleta.png") no-repeat;
+  }
 }
 
-.bicicleta:hover {
-  background: image-url("balao-colorido-bicicleta.png") no-repeat;
-}
-
-.bicicleta .selected {
-  background: image-url("balao-colorido-bicicleta.png") no-repeat;
+.bicicleta.selected {
+  background: image-url("balao-colorido-bicicleta.png") no-repeat !important;
 }
 
 #add-trajeto, #encontra-trajeto {

@@ -7,4 +7,8 @@ class RoutesController < ApplicationController
     @route = Route.new
     render "_form"
   end
+
+  def create
+    render "index"
+  end
 end

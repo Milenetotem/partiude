@@ -6,7 +6,6 @@ gem 'pg'
 # gem 'foreigner'
 # gem 'paperclip'
 gem 'validates_timeliness'
-gem 'jquery-rails'
 gem 'devise'
 gem 'geocoder'
 gem 'enumerate_it'
@@ -20,6 +19,8 @@ group :test, :development do
 end
 
 group :assets do
+  gem 'jquery-rails'
+  gem 'jquery-ui-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier'
   gem 'compass-rails'

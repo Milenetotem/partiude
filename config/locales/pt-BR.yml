@@ -1,5 +1,42 @@
 # Sample localization file for Portuguese. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-pt-BR:
-  hello: "Hello world"
+"pt-BR":
+  # All
+  attributes:
+    name: "Nome"
+
+# Active Record
+  activerecord:
+    models: &models
+      route: "Trajeto"
+
+    attributes:
+      route:
+        origin: "Origem"
+        destiny: "Destino"
+        day: "Data"
+        hour: "Hora"
+        transport_type: "Meio de Transporte"
+
+  new: "Novo"
+
+  enumerations:
+    months:
+      january: "Janeiro"
+      february: "Fevereiro"
+      march: "Março"
+      april: "Abril"
+      may: "Maio"
+      june: "Junho"
+      july: "Julho"
+      august: "Agosto"
+      september: "Setembro"
+      october: "Outubro"
+      november: "Novembro"
+      december: "Dezembro"
+    repeat_in:
+      today: "Só hoje"
+      daily: "Todo dia"
+      weekly: "Semanal"
+      monthly: "Mensal"

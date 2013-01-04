@@ -1,0 +1,8 @@
+$(function(){
+  $("div.radio-selector dd span").click(function(){
+    var target = $("div.radio-selector").data("target");
+    $("#"+target).val($(this).data("value"));
+    $("div.radio-selector").find("span").removeClass("selected");
+    $(this).addClass("selected");
+  });
+});
