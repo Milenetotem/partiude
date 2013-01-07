@@ -11,27 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121229195820) do
+ActiveRecord::Schema.define(:version => 20130107110736) do
 
-  create_table "points", :force => true do |t|
-    t.float    "lat",                              :null => false
-    t.float    "long",                             :null => false
-    t.string   "state",      :default => "active"
-    t.integer  "route_id"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+  create_table "itineraries", :force => true do |t|
+    t.string   "name",                              :null => false
+    t.string   "transport_type"
+    t.datetime "day",                               :null => false
+    t.datetime "hour",                              :null => false
+    t.string   "repeat_in",      :default => "day"
+    t.string   "origin",                            :null => false
+    t.string   "destiny",                           :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
-  create_table "routes", :force => true do |t|
-    t.string   "name",                                  :null => false
-    t.string   "origin",                                :null => false
-    t.string   "destiny",                               :null => false
-    t.string   "transport_type", :default => "walking"
-    t.datetime "day",                                   :null => false
-    t.datetime "hour",                                  :null => false
-    t.string   "repeat_in",      :default => "day"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+  create_table "points", :force => true do |t|
+    t.float    "lat",                                :null => false
+    t.float    "long",                               :null => false
+    t.string   "state",        :default => "active"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "itinerary_id"
   end
 
   create_table "users", :force => true do |t|

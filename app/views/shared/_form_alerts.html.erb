@@ -1,0 +1,13 @@
+<% if entity.errors.any? %>
+  <div class="alert-box alert">
+    <p>
+      <strong><%= pluralize(entity.errors.count, (t :"activerecord.errors.messages.one"), (t :"activerecord.errors.messages.other")) %> </strong>
+    </p>
+
+    <ul>
+      <% entity.errors.full_messages.each do |msg| %>
+          <li style="list-style:inside"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

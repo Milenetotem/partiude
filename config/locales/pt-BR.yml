@@ -9,17 +9,56 @@
 # Active Record
   activerecord:
     models: &models
-      route: "Trajeto"
+      itinerary: "Trajeto"
 
     attributes:
-      route:
+      itinerary:
         origin: "Origem"
         destiny: "Destino"
         day: "Data"
         hour: "Hora"
         transport_type: "Meio de Transporte"
 
+    errors: &errors
+      messages:
+        inclusion: "não está incluído na lista"
+        not_persisted: "É necessário salvar o registro para inserir imagens."
+        exclusion: "não está disponível"
+        invalid: "não é válido"
+        confirmation: "não está de acordo com a confirmação"
+        accepted: "deve ser aceito"
+        empty: "não pode ficar vazio(a)"
+        blank: "não pode ficar em branco"
+        too_long: "é muito longo (máximo: %{count} caracteres)"
+        too_short: "é muito curto (mínimo: %{count} caracteres)"
+        wrong_length: "não possui o tamanho esperado (%{count} caracteres)"
+        not_a_number: "não é um número"
+        not_an_integer: "não é um número inteiro"
+        greater_than: "deve ser maior do que %{count}"
+        greater_than_or_equal_to: "deve ser maior ou igual a %{count}"
+        equal_to: "deve ser igual a %{count}"
+        less_than: "deve ser menor do que %{count}"
+        less_than_or_equal_to: "deve ser menor ou igual a %{count}"
+        odd: "deve ser ímpar"
+        even: "deve ser par"
+        one: "valor inválido. Por favor verifique os dados digitados:"
+        other: "valores inválidos. Por favor verifique os dados digitados:"
+        check: "não foi selecionado."
+        required: "deve ser informado."
+        term: "deve ser menor ou igual ao máximo"
+        taken: "já em uso"
+        duplicated: "duplicado"
+        not_active: "não está ativo"
+        cant_be_deleted: "não pode ser excluído"
+        is_deleted: "já excluído(a)"
+        existence: "inexistente"
+        record_invalid: "A validação falhou: %{errors}"
+        image_invalid: "não é do tipo jpg, png ou gif."
+        not_allowed_by_the: "não é permitida pelo %{model}"
+        unable_to_delete_due_active_reference: "Não foi possível excluir o registro, pois o mesmo está em uso no cadastro de %{record}."
+
   new: "Novo"
+  create: "Adicionar"
 
   enumerations:
     months:

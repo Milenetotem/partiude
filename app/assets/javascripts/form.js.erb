@@ -5,4 +5,10 @@ $(function(){
     $("div.radio-selector").find("span").removeClass("selected");
     $(this).addClass("selected");
   });
+
+  $("div.radio-selector").each(function(){
+    var target = $(this).data("target");
+    $(this).find("span."+$("#"+target).val()+"").addClass("selected");
+  });
+
 });

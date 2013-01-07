@@ -12,12 +12,3 @@ test:
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
-
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   host: localhost
-#   database: partiude
-#   pool: 5
-#   username: partiude
-#   password: fb20f55d2108cca30957018bd448a092

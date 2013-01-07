@@ -1,0 +1,24 @@
+<div class="container twelve columns">
+  <div class="row">
+    <div class="eight columns offset-by-one">
+        <div class="seven columns">
+          <%= form_for @itinerary, :builder => ItineraryFormBuilder, :html => {:class => "custom"}  do |f| %>
+            <fieldset  id="add-route">
+              <legend><%= "#{I18n.t(:new)} #{Itinerary.model_name.human}" %></legend>
+              <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary, :method => 'post' } %>
+              <%= f.text_field :name, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:name)}" %>
+              <%= f.transport_type_field %>
+              <%= f.text_field :origin, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
+              <%= f.text_field :destiny, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
+              <p><a href="#">Ver mapa</a></p>
+              <%= f.text_field :day, :class => "radius  six column", :placeholder=>"#{Itinerary.human_attribute_name(:day)}" %>
+              <%= f.text_field :hour, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:hour)}" %>
+              <%= f.repeat_in_field %>
+              <%= f.submit :class=>"radius button twelve ", :value=>"#{I18n.t(:create)}" %>
+
+            </fieldset>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
