@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require jquery.ui.datepicker-pt-BR
+//= require jquery.timepicker.min
+//= require ui.mask
 //= require foundation
 //= require form
-//= require_tree .

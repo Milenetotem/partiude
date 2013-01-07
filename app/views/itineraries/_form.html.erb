@@ -11,8 +11,8 @@
               <%= f.text_field :origin, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
               <%= f.text_field :destiny, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
               <p><a href="#">Ver mapa</a></p>
-              <%= f.text_field :day, :class => "radius  six column", :placeholder=>"#{Itinerary.human_attribute_name(:day)}" %>
-              <%= f.text_field :hour, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:hour)}" %>
+              <%= f.text_field :day, :class => "radius  six column datepicker", :placeholder=>"#{Itinerary.human_attribute_name(:day)}" %>
+              <%= f.text_field :hour, :class => "radius six timepicker", :placeholder=>"#{Itinerary.human_attribute_name(:hour)}" %>
               <%= f.repeat_in_field %>
               <%= f.submit :class=>"radius button twelve ", :value=>"#{I18n.t(:create)}" %>
 
