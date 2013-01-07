@@ -60,6 +60,9 @@
   new: "Novo"
   create: "Adicionar"
 
+  alerts:
+    successfully_created: "Yey! %{model} criado com sucesso!"
+
   enumerations:
     months:
       january: "Janeiro"

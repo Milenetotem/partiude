@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107110736) do
+ActiveRecord::Schema.define(:version => 20130107194646) do
 
   create_table "itineraries", :force => true do |t|
     t.string   "name",                              :null => false
     t.string   "transport_type"
     t.datetime "day",                               :null => false
-    t.datetime "hour",                              :null => false
     t.string   "repeat_in",      :default => "day"
     t.string   "origin",                            :null => false
     t.string   "destiny",                           :null => false
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+    t.string   "hour"
   end
 
   create_table "points", :force => true do |t|
