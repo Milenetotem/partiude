@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.10'
 
 gem 'pg'
-# gem 'foreigner'
-# gem 'paperclip'
+gem 'foreigner'
 gem 'validates_timeliness'
 gem 'devise'
 gem 'geocoder'
@@ -19,6 +18,7 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :assets do

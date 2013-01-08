@@ -19,7 +19,12 @@ class Itinerary < ActiveRecord::Base
   validates_presence_of :day
   validates_presence_of :hour
 
-  # validates_presence_of :points
-  # validates_length_of :points, :minimum => 2, :message => :empty
+  def origin_coordinates
+    Geocoder.coordinates(origin)
+  end
+
+  def destiny_coordinates
+    Geocoder.coordinates(destiny)
+  end
 
 end

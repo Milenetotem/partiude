@@ -1,6 +1,7 @@
 class ItinerariesController < ApplicationController
 
   def index
+    @itinerary = Itinerary.new
   end
 
   def new
@@ -17,6 +18,11 @@ class ItinerariesController < ApplicationController
         render "_form"
       end
     end
+  end
+
+  def show
+    @itinerary = Itinerary.find(params[:id])
+    respond_with @itinerary
   end
 
 end
