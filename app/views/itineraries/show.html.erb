@@ -1,2 +1,5 @@
-
-<%= @itinerary.origin_coordinates %>
+<div class="twelve itinerary-map"
+  data-origin-coordiation="<%= @itinerary.origin_coordinates %>"
+  data-destiny-coordiation="<%= @itinerary.destiny_coordinates %>"
+  data-origin="<%= @itinerary.origin %>"
+  data-destiny="<%= @itinerary.destiny %>">

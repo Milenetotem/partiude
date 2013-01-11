@@ -13,9 +13,9 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(params[:itinerary])
     respond_to do |format|
       if @itinerary.save
-        format.html { redirect_to itineraries_path, :notice => I18n.t(:"alerts.successfully_created", :model => Itinerary.model_name.human) }
+        format.html { redirect_to itineraries_path(@itinerary), :notice => I18n.t(:"alerts.successfully_created", :model => Itinerary.model_name.human) }
       else
-        render "_form"
+        format.html { render "_form" }
       end
     end
   end

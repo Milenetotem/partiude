@@ -1,7 +1,7 @@
 <div class="container twelve columns">
   <div class="row">
       <div class="seven columns">
-        <%= form_for @itinerary, :builder => ItineraryFormBuilder, :html => {:class => "custom"}  do |f| %>
+        <%= form_for(@itinerary, :builder => ItineraryFormBuilder, :html => {:class => "custom"}) do |f| %>
           <fieldset  id="add-route">
             <legend><%= "#{I18n.t(:new)} #{Itinerary.model_name.human}" %></legend>
             <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary, :method => 'post' } %>

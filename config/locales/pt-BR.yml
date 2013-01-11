@@ -56,6 +56,7 @@
         image_invalid: "não é do tipo jpg, png ou gif."
         not_allowed_by_the: "não é permitida pelo %{model}"
         unable_to_delete_due_active_reference: "Não foi possível excluir o registro, pois o mesmo está em uso no cadastro de %{record}."
+        invalid_address: "é um endereço inválido."
 
   new: "Novo"
   create: "Adicionar"

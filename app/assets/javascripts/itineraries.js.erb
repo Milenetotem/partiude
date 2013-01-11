@@ -1,0 +1,28 @@
+ItineraryMap = function ItineraryMap(map){
+  this._map = map;
+  if(map){
+    this.originCordination = $(map).data("origin-coordiation");
+    this.destinyCordination = $(map).data("destiny-coordiation");
+    this.origin = $(map).data("origin");
+    this.destiny = $(map).data("destiny");
+
+  }
+};
+
+ItineraryMap.prototype.render = function() {
+  var originLatLng = new google.maps.LatLng(this.originCordination[0], this.originCordination[1]);
+  var destinyLatLng = new google.maps.LatLng(this.destinyCordination[0], this.destinyCordination[1]);
+  var mapOptions = {
+    zoom: 8,
+    center: destinyLatLng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(this._map, mapOptions);
+};
+
+
+$(function(){
+  var itineraryMap = new ItineraryMap($("div.itinerary-map")[0]);
+  itineraryMap.render();
+
+});

@@ -1,5 +1,6 @@
 class Itinerary < ActiveRecord::Base
 
+
   attr_accessible :name, :transport_type, :origin, :destiny, :day, :hour, :repeat_in
 
   belongs_to :user
@@ -19,12 +20,28 @@ class Itinerary < ActiveRecord::Base
   validates_presence_of :day
   validates_presence_of :hour
 
+  validate :check_origin_and_destiny_address, :on => :create
+
   def origin_coordinates
-    Geocoder.coordinates(origin)
+    [].tap do |coord|
+      coordination = Geocoder.search(origin)[0]
+      coord[0] = coordination.latitude
+      coord[1] = coordination.longitude
+    end if origin.present?
   end
 
   def destiny_coordinates
-    Geocoder.coordinates(destiny)
+    [].tap do |coord|
+      coordination = Geocoder.search(destiny)[0]
+      coord[0] = coordination.latitude
+      coord[1] = coordination.longitude
+    end if destiny.present?
+  end
+
+private
+  def check_origin_and_destiny_address
+    errors.add(:origin, :invalid_address) unless origin_coordinates.present?
+    errors.add(:destiny, :invalid_address) unless destiny_coordinates.present?
   end
 
 end
