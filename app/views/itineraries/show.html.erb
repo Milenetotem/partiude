@@ -1,5 +1,48 @@
-<div class="twelve itinerary-map"
-  data-origin-coordiation="<%= @itinerary.origin_coordinates %>"
-  data-destiny-coordiation="<%= @itinerary.destiny_coordinates %>"
-  data-origin="<%= @itinerary.origin %>"
-  data-destiny="<%= @itinerary.destiny %>">
+<div class="row">
+	<div class="twelve columns">
+		<h3>Nome do trajeto</h3>
+	</div>	
+</div>
+<div class="row">
+	<div class="twelve itinerary-map"
+	  data-origin-coordiation="<%= @itinerary.origin_coordinates %>"
+	  data-destiny-coordiation="<%= @itinerary.destiny_coordinates %>"
+	  data-origin="<%= @itinerary.origin %>"
+	  data-destiny="<%= @itinerary.destiny %>">
+	</div>
+</div>
+<div class="row">
+	<div class="three columns">
+		<div class="row" id="group-users">
+			<div class="one column">
+				<a href="#"><img src="images/avatar.jpg" class="one left"/></a>
+			</div>
+		</div>
+	</div>
+	<div class="eight columns offset-by-one">
+		<div class="row">
+			<div class="six columns">
+				<div class="icone-posicao two">
+					<img src="images/icon_origem-sem.png" width="40px" />
+				</div>
+				<div class="nine columns">
+					<p><strong>Origem:</strong><br /> Porto Alegre</p>
+				</div>
+			</div>
+			<div class="six columns">
+				<div class="icone-posicao two">
+					<img src="images/icon_destino-sem.png" width="40px"/>
+				</div>
+				<div class="nine columns">
+					<p><strong>Destino:</strong><br /> Fazenda do Pontal, Xangri-Lá/RS</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				#coments
+			</div>
+		</div>
+
+	</div>
+</div>
