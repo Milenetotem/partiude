@@ -1,6 +1,6 @@
-<div class="container twelve columns">
+
   <div class="row">
-      <div class="seven columns">
+      <div class="seven columns offset-by-five">
         <%= form_for(@itinerary, :builder => ItineraryFormBuilder, :html => {:class => "custom"}) do |f| %>
           <fieldset  id="add-route">
             <legend><%= "#{I18n.t(:new)} #{Itinerary.model_name.human}" %></legend>
@@ -19,4 +19,3 @@
         <% end %>
       </div>
   </div>
-</div>

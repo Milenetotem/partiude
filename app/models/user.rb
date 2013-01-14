@@ -5,8 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :itineraries
+
+  def admin?
+   email.eql? "dev@partiu.de"
+  end
 
 end

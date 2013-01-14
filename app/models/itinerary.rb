@@ -1,7 +1,7 @@
 class Itinerary < ActiveRecord::Base
 
 
-  attr_accessible :name, :transport_type, :origin, :destiny, :day, :hour, :repeat_in
+  attr_accessible :name, :transport_type, :origin, :destiny, :day, :hour, :repeat_in, :user
 
   belongs_to :user
   has_many :points
@@ -16,7 +16,7 @@ class Itinerary < ActiveRecord::Base
   validates_presence_of :destiny
   validates_presence_of :repeat_in
   validates_presence_of :transport_type
-  # validates_presence_of :user
+  validates_presence_of :user
   validates_presence_of :day
   validates_presence_of :hour
 

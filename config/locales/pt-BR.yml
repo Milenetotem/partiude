@@ -18,6 +18,10 @@
         day: "Data"
         hour: "Hora"
         transport_type: "Meio de Transporte"
+      user:
+        remember_me: "Me mantenha logado"
+        password: "Senha"
+        email: "Email"
 
     errors: &errors
       messages:
@@ -60,6 +64,12 @@
 
   new: "Novo"
   create: "Adicionar"
+  sign_in: "Entrar"
+  sign_up: "Cadastrar-se"
+  recovery_password: "Esqueceu sua senha?"
+  confirmation_not_received: "Não recebeu o email de confirmação?"
+  unlock_instructions_not_received: "Não recebeu o email de desbloqueio?"
+  sign_in_as: "Entrar como:"
 
   alerts:
     successfully_created: "Yey! %{model} criado com sucesso!"
