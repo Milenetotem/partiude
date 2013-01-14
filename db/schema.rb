@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(:version => 20130108234604) do
     t.string   "name",                              :null => false
     t.string   "transport_type"
     t.datetime "day",                               :null => false
+    t.string   "hour",                              :null => false
     t.string   "repeat_in",      :default => "day"
     t.string   "origin",                            :null => false
     t.string   "destiny",                           :null => false
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
-    t.string   "hour"
     t.integer  "user_id"
   end
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130108234604) do
     t.integer  "itinerary_id"
     t.string   "latitute"
     t.string   "longitude"
+    t.string   "address"
   end
 
   create_table "users", :force => true do |t|
