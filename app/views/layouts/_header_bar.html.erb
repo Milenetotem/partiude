@@ -11,10 +11,12 @@
         <ul class="left">
           <li class="divider"></li>
           <li>
-            <a class="active" href="#">Meus trajetos</a>
+            <%= link_to(I18n.t("itinerary.view_mine".to_sym), itineraries_path, :class => "active") %>
           </li>
           <li class="divider"></li>
-          <li><a href="#">Encontrar trajetos</a></li>
+          <li>
+            <%= link_to(I18n.t(:search_itineraries), itineraries_path, :class => "active") %>
+          </li>
           <li class="divider"></li>
         </ul>
 
