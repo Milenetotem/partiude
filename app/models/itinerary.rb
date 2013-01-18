@@ -5,6 +5,7 @@ class Itinerary < ActiveRecord::Base
 
   belongs_to :user
   has_many :points
+  has_many :participants
 
   has_enumeration_for :repeat_in
   has_enumeration_for :transport_type, :create_helpers => {:prefix => true}

@@ -18,6 +18,7 @@
         day: "Data"
         hour: "Hora"
         transport_type: "Meio de Transporte"
+        participants: "Participantes"
       user:
         remember_me: "Me mantenha logado"
         password: "Senha"
@@ -70,6 +71,14 @@
   confirmation_not_received: "Não recebeu o email de confirmação?"
   unlock_instructions_not_received: "Não recebeu o email de desbloqueio?"
   sign_in_as: "Entrar como:"
+
+  itinerary:
+    view: "Ver grupo"
+    similars: "Procurar similares"
+    has_many: "Este itinerário tem %{number} participantes!"
+    has_one: "Este itinerário tem um participante!"
+    has_none: "Ainda não tem nenhum participante, seja o primeiro!"
+
 
   alerts:
     successfully_created: "Yey! %{model} criado com sucesso!"

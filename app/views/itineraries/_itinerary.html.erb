@@ -1,53 +1,55 @@
-<div class="columns twelve grupo">
+<div class="columns twelve ">
   <div class="row">
-    <%= transport_type_img(itinerary.transport_type) %>
-    <h3 class="columns subheader"><%= itinerary.name %></h3>
-    <div class="one column end"><a href="#"><%= image_tag "status-aguardando.png" %></a></div>
+    <div class="twelve columns itinerary-header">
+      <%= transport_type_img(itinerary.transport_type) %>
+      <h3 class="columns subheader"><%= itinerary.name %></h3>
+      <div class="one column end">
+        <a href="#"><%= image_tag "status-aguardando.png" %></a>
+      </div>
+    </div>
   </div>
-  <div class="row twelve grupo-info">
-    <div class="nine columns">
-      <div class="info-enderecos row">
-        <div class="six columns">
-          <div class="icone-posicao three"><a href="#" class="th"><%= image_tag("avatar.jpg", :class => "avatar") %></a><div class="icone-origem"></div></div>
-          <div class="eight columns end">
-            <p>
-              <%= itinerary.hour %>
-            </p>
-            <p>
-              <%= itinerary.origin %>
-            </p>
-          </div>
+  <div class="row">
+    <div class="info-address row">
+      <div class="four columns">
+        <div class="icon-position three">
+          <a href="#" class="th"><%= image_tag("avatar.jpg", :class => "avatar") %></a>
+          <div class="icon-origin"></div>
         </div>
-        <div class="six columns">
-          <div class="icone-posicao three"><a href="#" class="th"><%= image_tag("avatar.jpg", :class => "avatar") %></a><div class="icone-destino"></div></div>
-          <div class="eight columns end">
-            <p>
-              <%= itinerary.hour %>
-            </p>
-            <p>
-              <%= itinerary.destiny %>
-            </p>
+        <div class="eight columns end">
+          <p><%= itinerary.hour %></p>
+          <p><%= itinerary.origin %></p>
         </div>
       </div>
-      <div class="info-freq row">
-        <div class="six columns">
-          <div class="three left"><%= image_tag "icone-calendar.png" %></div>
-          <div class="eight columns"><p><strong>Semanal</strong></p> <p>Seg, Qua, Sex</p>
-          </div>
+      <div class="six columns">
+        <div class="icon-position three">
+          <a href="#" class="th"><%= image_tag("avatar.jpg", :class => "avatar") %></a>
+          <div class="icon-origin"></div>
         </div>
-        <div class="six columns">
-          <p><strong>Participantes</strong></p>
-          <a href="" class="th"><% image_tag("avatar.jpg", :class=>"two left") %></a>
+        <div class="eight columns end">
+          <p><%= itinerary.hour %></p>
+          <p><%= itinerary.origin %></p>
         </div>
       </div>
     </div>
-    <div class="three columns">
-      <a class="radius primary button" href="#">Ver grupo</a>
+    <div class="info-freq row">
+      <div class="four columns">
+        <div class="three left"><%= image_tag "icone-calendar.png" %></div>
+        <div class="eight columns"><p><strong><%= itinerary.repeat_in_humanize %></strong></p>
+        </div>
+      </div>
+      <div class="two columns">
+        <p><strong><%= Itinerary.human_attribute_name(:participants) %></strong></p>
+        <a href="" class="th"><%= image_tag("avatar.jpg", :class=>"avatar") %></a>
+        <%= group_size_greeting(itinerary.participants) %>
+      </div>
+      <div class="three columns">
+        <%= link_to(I18n.t("itinerary.view".to_sym), itinerary, :class => "radius primary button") %>
+      </div>
     </div>
   </div>
   <div class="row twelve columns">
     <div class="panel radius">
-      Este grupo tem apenas um participante. <a href="#" class="small radius button">Procurar similares</a>
+      <a href="#" class="small radius button"><%= I18n.t("itinerary.similars".to_sym) %></a>
     </div>
   </div>
 </div>
