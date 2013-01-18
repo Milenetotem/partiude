@@ -74,7 +74,7 @@
 
   itinerary:
     view: "Ver grupo"
-    similars: "Procurar similares"
+    similars: "Ver Similares"
     has_many: "Este itinerário tem %{number} participantes!"
     has_one: "Este itinerário tem um participante!"
     has_none: "Ainda não tem nenhum participante, seja o primeiro!"

@@ -11,6 +11,16 @@ module ItinerariesHelper
     end
   end
 
+  def show_participants(itinerary)
+    participants = itinerary.participants
+    # participants_thumb(participants)
+    group_size_greeting(participants)
+  end
+
+private
+  def participants_thumb(participants)
+  end
+
   def group_size_greeting(participants)
     if participants.present?
       if participants.size > 1
