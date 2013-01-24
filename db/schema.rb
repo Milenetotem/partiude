@@ -11,19 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118010454) do
+ActiveRecord::Schema.define(:version => 20130122020126) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "itinerary_id"
+    t.string   "content",      :limit => 150, :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
 
   create_table "itineraries", :force => true do |t|
-    t.string   "name",                              :null => false
+    t.string   "name",           :null => false
     t.string   "transport_type"
-    t.datetime "day",                               :null => false
-    t.string   "hour",                              :null => false
-    t.string   "repeat_in",      :default => "day"
-    t.string   "origin",                            :null => false
-    t.string   "destiny",                           :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.integer  "user_id"
+    t.string   "origin",         :null => false
+    t.string   "destiny",        :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "recurring_id"
+    t.string   "state"
   end
 
   create_table "participants", :force => true do |t|
@@ -40,7 +46,23 @@ ActiveRecord::Schema.define(:version => 20130118010454) do
     t.integer  "itinerary_id"
     t.string   "latitute"
     t.string   "longitude"
-    t.string   "address"
+  end
+
+  create_table "recurrings", :force => true do |t|
+    t.string   "repeat_in"
+    t.string   "hour"
+    t.integer  "repeat_weekly_interval"
+    t.datetime "begin_day"
+    t.integer  "itinerary_id"
+    t.boolean  "sunday",                 :default => false
+    t.boolean  "monday",                 :default => false
+    t.boolean  "tuesday",                :default => false
+    t.boolean  "wednesday",              :default => false
+    t.boolean  "thursday",               :default => false
+    t.boolean  "friday",                 :default => false
+    t.boolean  "saturday",               :default => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "users", :force => true do |t|

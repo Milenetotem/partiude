@@ -3,26 +3,30 @@
 
 "pt-BR":
   # All
-  attributes:
-    name: "Nome"
 
 # Active Record
   activerecord:
+    attributes:
+      name: "Nome"
     models: &models
-      itinerary: "Trajeto"
+      itinerary: &itinerary "Trajeto"
+      user: &user "Usuário"
+      recurring: &recurring "Recorrência"
 
     attributes:
       itinerary:
         origin: "Origem"
         destiny: "Destino"
-        day: "Data"
-        hour: "Hora"
-        transport_type: "Meio de Transporte"
         participants: "Participantes"
       user:
         remember_me: "Me mantenha logado"
         password: "Senha"
         email: "Email"
+      recurring:
+        begin_day: "Data"
+        hour: "Hora"
+        transport_type: "Meio de Transporte"
+        itinerary: *itinerary
 
     errors: &errors
       messages:
@@ -62,6 +66,7 @@
         not_allowed_by_the: "não é permitida pelo %{model}"
         unable_to_delete_due_active_reference: "Não foi possível excluir o registro, pois o mesmo está em uso no cadastro de %{record}."
         invalid_address: "é um endereço inválido."
+        select_at_least_one_day: "deve ser selecionado pelo menos um dia da semana"
 
   new: "Novo"
   create: "Adicionar"
@@ -99,6 +104,14 @@
       october: "Outubro"
       november: "Novembro"
       december: "Dezembro"
+    days_of_week:
+      sunday: "Domingo"
+      monday: "Segunda"
+      tuesday: "Terça"
+      wednesday: "Quarta"
+      thursday: "Quinta"
+      friday: "Sexta"
+      saturday: "Sábado"
     repeat_in:
       today: "Só hoje"
       daily: "Todo dia"

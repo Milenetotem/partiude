@@ -2,7 +2,7 @@
 	<div class="twelve columns" id="group-title">
 		<h3 class="left"><%= @itinerary.name %></h3>
 		<span class="<%= @itinerary.transport_type %> selected left" id="group-transport"></span>
-	</div>	
+	</div>
 </div>
 <div class="row">
 	<div class="twelve itinerary-map"
@@ -15,19 +15,10 @@
 <div class="row">
 	<div class="three columns">
 		<div class="row" id="group-users">
-			<h6>Participantes</h6>
-			<div class="three left">
-				<a href="#"><%= image_tag "avatar.jpg" %></a>
-			</div>
-			<div class="three left">
-				<a href="#"><%= image_tag "avatar.jpg" %></a>
-			</div>
-			<div class="three left">
-				<a href="#"><%= image_tag "avatar.jpg" %></a>
-			</div>
-			<div class="three left">
-				<a href="#"><%= image_tag "avatar.jpg" %></a>
-			</div>
+			<h6><%= Itinerary.human_attribute_name(:participants) %></h6>
+			<% @itinerary.participants.each do |participant| %>
+				<%= render "shared/participant_thumb_large", :locals => {:participant => participant} %>
+			<% end %>
 		</div>
 	</div>
 	<div class="eight columns offset-by-one">
@@ -36,19 +27,25 @@
 				<div class="icon-origin description-marker">
 				</div>
 				<div class="nine columns">
-					<h6>Origem</h6><p><%= @itinerary.origin %></p>
+					<h6><%= Itinerary.human_attribute_name(:origin) %></h6>
+					<p><%= @itinerary.origin %></p>
 				</div>
 			</div>
 			<div class="six columns">
 				<div class="icon-destiny description-marker">
 				</div>
 				<div class="nine columns">
-					<h6>Destino</h6><p> <%= @itinerary.destiny %></p>
+					<h6><%= Itinerary.human_attribute_name(:destiny) %></h6>
+					<p> <%= @itinerary.destiny %></p>
 				</div>
 			</div>
-			<div class="twelve columns">
-				<h6>Dia</h6><p> <%= @itinerary.day %></p>
-				<h6>Horário</h6><p> <%= @itinerary.hour %></p>
+			<div class="six columns">
+				<h6><%= Itinerary.human_attribute_name(:day) %></h6>
+				<p> <%= @itinerary.day %></p>
+			</div>
+			<div class="six columns">
+				<h6><%= Itinerary.human_attribute_name(:hour) %></h6>
+				<p> <%= @itinerary.hour %></p>
 			</div>
 		</div>
 		<div class="row">

@@ -1,14 +1,18 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-
 gem 'pg'
-gem 'foreigner'
-gem 'validates_timeliness'
 gem 'devise'
+
+gem 'validates_timeliness'
+gem 'foreigner'
+
 gem 'enumerate_it'
+
 gem 'geocoder'
 gem 'zipfinder'
+
+gem 'recurrence'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
