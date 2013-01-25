@@ -2,8 +2,6 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 "pt-BR":
-  # All
-
 # Active Record
   activerecord:
     attributes:
@@ -117,3 +115,11 @@
       daily: "Todo dia"
       weekly: "Semanal"
       monthly: "Mensal"
+
+  devise:
+    sessions:
+      signed_in: 'Yey, vocês está conectado!'
+    failure:
+      user:
+        invalid: "Usuário inválido"
+        unauthenticated: "Você precisa fazer o login primeiro"
