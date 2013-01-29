@@ -46,7 +46,7 @@ class Itinerary < ActiveRecord::Base
   end
 
   def self.visible_to(user)
-    Itinerary.joins(:participants).where(:"participants.id" => user.id)
+    Itinerary.joins(:participants).where(:"participants.user_id" => user.id)
   end
 
 private

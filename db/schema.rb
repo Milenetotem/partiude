@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(:version => 20130122020126) do
   end
 
   create_table "itineraries", :force => true do |t|
-    t.string   "name",           :null => false
+    t.string   "name",                                 :null => false
     t.string   "transport_type"
-    t.string   "origin",         :null => false
-    t.string   "destiny",        :null => false
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "origin",                               :null => false
+    t.string   "destiny",                              :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "recurring_id"
-    t.string   "state"
+    t.string   "state",          :default => "active"
   end
 
   create_table "participants", :force => true do |t|

@@ -12,7 +12,9 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = Itinerary.new(params[:itinerary]).add_participant(current_user)
+    @itinerary = Itinerary.new(params[:itinerary])
+    @itinerary.add_participant(current_user)
+    @itinerary.recurring = Recurring.new(params[:recurring])
     respond_to do |format|
       if @itinerary.save
         format.html { redirect_to itineraries_path(@itinerary), :notice => I18n.t(:"alerts.successfully_created", :model => Itinerary.model_name.human) }

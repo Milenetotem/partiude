@@ -18,4 +18,5 @@
 //= require jquery.timepicker.min
 //= require ui.mask
 //= require form
+//= require itineraries
 

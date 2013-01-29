@@ -3,9 +3,10 @@
 
 "pt-BR":
 # Active Record
+  attributes:
+    name: "Nome"
+
   activerecord:
-    attributes:
-      name: "Nome"
     models: &models
       itinerary: &itinerary "Trajeto"
       user: &user "Usuário"
