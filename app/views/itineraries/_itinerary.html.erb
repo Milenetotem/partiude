@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="four columns">
-        <%= render 'itineraries/recurring', :locals => {:recurring => itinerary.recurring} %>
+        <%= render :partial => 'itineraries/recurring', :locals => {:recurring => itinerary.recurring} %>
       </div>
     </div>
     <div class="info-freq row">

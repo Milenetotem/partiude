@@ -17,7 +17,7 @@
 		<div class="row" id="group-users">
 			<h6><%= Itinerary.human_attribute_name(:participants) %></h6>
 			<% @itinerary.participants.each do |participant| %>
-				<%= render "shared/participant_thumb_large", :locals => {:participant => participant} %>
+				<%= render :partial => "shared/participant_thumb_large", :locals => {:participant => participant} %>
 			<% end %>
 		</div>
 	</div>
