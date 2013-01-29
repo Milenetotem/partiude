@@ -58,10 +58,10 @@ GEM
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
-    jquery-rails (2.2.0)
+    jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (3.0.1)
+    jquery-ui-rails (3.0.0)
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.6)
@@ -169,8 +169,8 @@ DEPENDENCIES
   enumerate_it
   foreigner
   geocoder
-  jquery-rails
-  jquery-ui-rails
+  jquery-rails (= 2.1.4)
+  jquery-ui-rails (= 3.0.0)
   pg
   rails (= 3.2.11)
   recurrence

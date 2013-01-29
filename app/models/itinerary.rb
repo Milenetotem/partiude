@@ -13,6 +13,7 @@ class Itinerary < ActiveRecord::Base
 
   accepts_nested_attributes_for :points, :allow_destroy => true
   accepts_nested_attributes_for :participants, :allow_destroy => true
+  accepts_nested_attributes_for :recurring, :allow_destroy => true
 
   validates_presence_of :name
   validates_presence_of :origin

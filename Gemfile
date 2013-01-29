@@ -14,8 +14,8 @@ gem 'zipfinder'
 
 gem 'recurrence'
 
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-rails', '2.1.4'
+gem 'jquery-ui-rails', '3.0.0'
 
 group :test do
   gem 'sqlite3'

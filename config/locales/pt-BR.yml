@@ -16,6 +16,7 @@
         origin: "Origem"
         destiny: "Destino"
         participants: "Participantes"
+        transport_type: "Tipo de transporte"
       user:
         remember_me: "Me mantenha logado"
         password: "Senha"

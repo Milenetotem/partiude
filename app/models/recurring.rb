@@ -1,5 +1,7 @@
 class Recurring < ActiveRecord::Base
-  attr_accessible :repeat_in, :hour, :begin_day, :itinerary
+  attr_accessible :repeat_weekly_interval, :repeat_in, :hour, :begin_day, :itinerary,
+                  :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday
+
 
   belongs_to :itinerary
 

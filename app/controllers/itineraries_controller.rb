@@ -1,12 +1,12 @@
 class ItinerariesController < ApplicationController
 
   def index
-    @itinerary = Itinerary.new()
+    @itinerary = Itinerary.new(:recurring => Recurring.new())
     @itineraries = Itinerary.visible_to(current_user)
   end
 
   def new
-    @itinerary = Itinerary.new()
+    @itinerary = Itinerary.new(:recurring => Recurring.new())
     @itinerary.add_participant(current_user)
     render "_form"
   end
