@@ -10,9 +10,12 @@ class Recurring < ActiveRecord::Base
   validates_presence_of :repeat_in
   validates_presence_of :hour
   validates_presence_of :begin_day
-  validates_presence_of :itinerary
 
   validate :check_weekly_selected_days
+
+  def next_occur
+    nil
+  end
 
 private
   def check_weekly_selected_days

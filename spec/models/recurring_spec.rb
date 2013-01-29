@@ -11,11 +11,10 @@ describe Recurring do
     it { should validate_presence_of(:repeat_in) }
     it { should validate_presence_of(:hour) }
     it { should validate_presence_of(:begin_day) }
-    it { should validate_presence_of(:itinerary) }
   end
 
   context "#create" do
-    context "with invalid itinerary" do
+    context "repeat in week" do
       let(:recurring) do
         options = {:repeat_in => RepeatIn::WEEKLY, :hour => "00:00",
                  :begin_day => Date.today, :itinerary => Itinerary.new}
@@ -32,6 +31,13 @@ describe Recurring do
         message = I18n.t("activerecord.errors.messages.select_at_least_one_day".to_sym)
         recurring.errors[:repeat_in][0].should == message
       end
+
+      it "save when one day is selected" do
+        recurring.sunday = true
+        expect{
+          recurring.save!
+        }.to change(Recurring, :count).by(1)
+      end
     end
 
     it "save when everything is ok" do
@@ -40,7 +46,14 @@ describe Recurring do
 
       recurring = Recurring.new(options)
       recurring.should be_valid
+      expect{
+        recurring.save!
+      }.to change(Recurring, :count).by(1)
     end
+  end
+
+  context "#next_occur" do
+    it { should respond_to(:next_occur) }
   end
 
 end

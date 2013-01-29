@@ -20,7 +20,7 @@ describe Itinerary do
 
   context "#add_participant" do
     let(:recurring) {
-      Recurring.new(:repeat_in => RepeatIn::WEEKLY,
+      Recurring.new(:repeat_in => RepeatIn::TODAY,
                     :hour => "00:00",
                     :begin_day => Date.today)
     }

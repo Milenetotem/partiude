@@ -4,7 +4,6 @@ gem 'rails', '3.2.11'
 gem 'pg'
 gem 'devise'
 
-gem 'validates_timeliness'
 gem 'foreigner'
 
 gem 'enumerate_it'
