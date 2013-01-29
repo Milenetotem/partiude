@@ -1,15 +1,17 @@
 <%= fields_for(:recurring, recurring, :builder => RecurringFormBuilder) do |f| %>
   <%= f.repeat_in_field %>
-  <%= f.text_field :begin_day, :class => "radius  six column datepicker", :placeholder=>"#{Recurring.human_attribute_name(:begin_day)}" %>
-  <%= f.text_field :hour, :class => "radius six timepicker", :placeholder=>"#{Recurring.human_attribute_name(:hour)}" %>
-  <%= f.text_field :repeat_weekly_interval, :class => "radius six", :placeholder=>"#{Recurring.human_attribute_name(:repeat_weekly_interval)}" %>
+  <%= f.text_field :hour, :class => "radius six column timepicker", :placeholder=>"#{Recurring.human_attribute_name(:hour)}" %>
+  <%= f.text_field :begin_day, :class => "radius six column datepicker invisible", :placeholder=>"#{Recurring.human_attribute_name(:begin_day)}" %>
+  <%= f.text_field :repeat_weekly_interval, :class => "radius six column invisible", :placeholder=>"#{Recurring.human_attribute_name(:repeat_weekly_interval)}" %>
 
-  <%= f.day_of_week_check_box(:sunday) %>
-  <%= f.day_of_week_check_box(:monday) %>
-  <%= f.day_of_week_check_box(:tuesday) %>
-  <%= f.day_of_week_check_box(:wednesday) %>
-  <%= f.day_of_week_check_box(:thursday) %>
-  <%= f.day_of_week_check_box(:friday) %>
-  <%= f.day_of_week_check_box(:saturday) %>
+  <div class="twelve column">
+    <%= f.day_of_week_check_box(:sunday) %>
+    <%= f.day_of_week_check_box(:monday) %>
+    <%= f.day_of_week_check_box(:tuesday) %>
+    <%= f.day_of_week_check_box(:wednesday) %>
+    <%= f.day_of_week_check_box(:thursday) %>
+    <%= f.day_of_week_check_box(:friday) %>
+    <%= f.day_of_week_check_box(:saturday) %>
+  </div>
 <% end %>
 

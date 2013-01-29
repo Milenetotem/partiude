@@ -2,7 +2,6 @@ class Recurring < ActiveRecord::Base
   attr_accessible :repeat_weekly_interval, :repeat_in, :hour, :begin_day, :itinerary,
                   :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday
 
-
   belongs_to :itinerary
 
   has_enumeration_for :repeat_in, :create_helpers => {:prefix => true}
@@ -10,7 +9,6 @@ class Recurring < ActiveRecord::Base
   validates_presence_of :repeat_in
   validates_presence_of :hour
   validates_presence_of :begin_day
-
   validate :check_weekly_selected_days
 
   def next_occur

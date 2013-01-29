@@ -27,6 +27,7 @@
         hour: "Hora"
         transport_type: "Meio de Transporte"
         itinerary: *itinerary
+        repeat_in: "MELJORAR"
 
     errors: &errors
       messages:

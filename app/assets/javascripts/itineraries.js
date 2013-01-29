@@ -35,14 +35,57 @@ ItineraryMap.prototype.render = function() {
     }else{
       // something goes wrong... =/
     }
-
   });
 
 };
 
+RecurringSelector = function RecurringSelector(element){
+  $(element).change(function(){
+    loadFields($(this).val());
+  });
+}
+
+RecurringSelector.prototype.loadFields = function(selectedRecurring) {
+  switch(selectedRecurring){
+    case "today":
+      $("#recurring_hour").removeClass("invisible");
+      $("#recurring_repeat_weekly_interval").addClass("invisible");
+      $("#recurring_begin_day").addClass("invisible");
+      $("div.day_of_week").each(function(){
+        $(this).addClass("invisible");
+      });
+      break;
+    case "daily":
+      $("#recurring_hour").removeClass("invisible");
+      $("#recurring_begin_day").addClass("invisible");
+      $("#recurring_repeat_weekly_interval").addClass("invisible");
+      $("div.day_of_week").each(function(){
+        $(this).addClass("invisible");
+      });
+      break;
+    case "weekly":
+      $("#recurring_hour").removeClass("invisible");
+      $("#recurring_begin_day").removeClass("invisible");
+      $("#recurring_repeat_weekly_interval").addClass("invisible");
+      $("div.day_of_week").each(function(){
+        $(this).removeClass("invisible");
+      });
+      break;
+    case "monthly":
+      $("#recurring_hour").removeClass("invisible");
+      $("#recurring_begin_day").removeClass("invisible");
+      $("#recurring_repeat_weekly_interval").removeClass("invisible");
+      $("div.day_of_week").each(function(){
+        $(this).removeClass("invisible");
+      });
+      break;
+  }
+};
+
 
 $(function(){
-  var itineraryMap = new ItineraryMap($("div.itinerary-map")[0]);
-  itineraryMap.render();
-
+  // var itineraryMap = new ItineraryMap($("div.itinerary-map"));
+  // itineraryMap.render();
+  selector = new RecurringSelector($("#recurring_repeat_in"));
+  selector.loadFields($("#recurring_repeat_in").val());
 });
