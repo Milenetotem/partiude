@@ -17,7 +17,7 @@ class ItinerariesController < ApplicationController
     @itinerary.recurring = Recurring.new(params[:recurring])
     respond_to do |format|
       if @itinerary.save
-        format.html { redirect_to itineraries_path(@itinerary), :notice => I18n.t(:"alerts.successfully_created", :model => Itinerary.model_name.human) }
+        format.html { redirect_to itineraries_path, :notice => I18n.t(:"alerts.successfully_created", :model => Itinerary.model_name.human) }
       else
         format.html { render "_form" }
       end
