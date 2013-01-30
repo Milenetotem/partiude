@@ -27,7 +27,8 @@
         hour: "Hora"
         transport_type: "Meio de Transporte"
         itinerary: *itinerary
-        repeat_in: "MELJORAR"
+        repeat_in: ""
+        repeat_weekly_interval: "Qual semana?"
 
     errors: &errors
       messages:
@@ -67,7 +68,7 @@
         not_allowed_by_the: "não é permitida pelo %{model}"
         unable_to_delete_due_active_reference: "Não foi possível excluir o registro, pois o mesmo está em uso no cadastro de %{record}."
         invalid_address: "é um endereço inválido."
-        select_at_least_one_day: "deve ser selecionado pelo menos um dia da semana"
+        select_at_least_one_day: "Selecione pelo menos um dia da semana"
 
   new: "Novo"
   create: "Adicionar"

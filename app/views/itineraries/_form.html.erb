@@ -16,3 +16,10 @@
         <% end %>
       </div>
   </div>
+
+<% content_for :js do %>
+  <script type="text/javascript">
+    var selector = new RecurringSelector($("#recurring_repeat_in"));
+    selector.loadFields();
+  </script>
+<% end %>

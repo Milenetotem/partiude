@@ -29,23 +29,23 @@ ItineraryMap.prototype.render = function() {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
     }else if(status == google.maps.DirectionsStatus.NOT_FOUND){
-      // not found, meh
+      console.log("not found, meh");
     }else if(status == google.maps.DirectionsStatus.ZERO_RESULTS){
-      // nothing found :(
+      console.log("nothing found :(");
     }else{
-      // something goes wrong... =/
+      console.log("something goes wrong... =/");
     }
   });
 
 };
 
 RecurringSelector = function RecurringSelector(element){
-  $(element).change(function(){
-    loadFields($(this).val());
-  });
+  this._element = element;
+  $(element).on('change', $.proxy(this.loadFields, this));
 }
 
-RecurringSelector.prototype.loadFields = function(selectedRecurring) {
+RecurringSelector.prototype.loadFields = function() {
+  var selectedRecurring = $(this._element).val();
   switch(selectedRecurring){
     case "today":
       $("#recurring_hour").removeClass("invisible");
@@ -81,11 +81,3 @@ RecurringSelector.prototype.loadFields = function(selectedRecurring) {
       break;
   }
 };
-
-
-$(function(){
-  // var itineraryMap = new ItineraryMap($("div.itinerary-map"));
-  // itineraryMap.render();
-  selector = new RecurringSelector($("#recurring_repeat_in"));
-  selector.loadFields($("#recurring_repeat_in").val());
-});
