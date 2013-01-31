@@ -11,7 +11,7 @@ gem 'enumerate_it'
 gem 'geocoder'
 gem 'zipfinder'
 
-gem 'recurrence'
+gem 'ice_cube'
 
 gem 'jquery-rails', '2.1.4'
 gem 'jquery-ui-rails', '3.0.0'

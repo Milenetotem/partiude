@@ -1,4 +1,4 @@
-require 'recurrence'
+require 'ice_cube'
 
 class Recurring < ActiveRecord::Base
   attr_accessible :repeat_weekly_interval, :repeat_in, :hour, :begin_day, :itinerary,
@@ -14,20 +14,27 @@ class Recurring < ActiveRecord::Base
   validate :check_weekly_selected_days, :check_monthly_selected_days
 
   def next_occur
-    return hour if RepeatIn::TODAY
-
-    case repeat_in
-    when RepeatIn::DAILY
-      options = {:every => :day, :start => start, :interval => 24}
-    when RepeatIn::WEEKLY
-      options = {:every => :week, :start => start, :on => repeation_days}
-    when RepeatIn::MONTHLY
-      options = {:every => :month, :start => start, :on => repeation_days}
+    if repeat_in_today?
+      DateTime.parse("#{begin_day} #{hour}")
+    else
+      schedule = IceCube::Schedule.new(start)
+      schedule.add_recurrence_rule(rule)
+      schedule.next_occurrence
     end
-    Recurrence.new(options).next
   end
 
 private
+  def rule
+    case repeat_in
+    when RepeatIn::DAILY
+      IceCube::Rule.daily
+    when RepeatIn::WEEKLY
+      IceCube::Rule.weekly.day(*repeation_days)
+    when RepeatIn::MONTHLY
+      IceCube::Rule.monthly
+    end
+  end
+
   def check_weekly_selected_days
     if repeat_in_weekly? && repeation_days.size < 1
       errors.add(:repeat_in, :select_at_least_one_day)
@@ -41,13 +48,13 @@ private
   end
 
   def start
-    DateTime.parse("#{begin_day.to_date} #{hour}")
+    DateTime.parse("#{begin_day.to_date} #{hour}").utc
   end
 
   def repeation_days
-    DaysOfWeek.list.select do |day|
+    DaysOfWeek.list.collect do |day|
       day.to_sym if send day.to_sym
-    end
+    end.compact
   end
 
 end

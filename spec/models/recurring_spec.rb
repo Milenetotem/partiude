@@ -13,6 +13,15 @@ describe Recurring do
     it { should validate_presence_of(:begin_day) }
   end
 
+  context "#repeation_days" do
+    it "return the days of week with true value" do
+      options = {:sunday => true}
+      recurring = Recurring.new(options)
+
+      recurring.send(:repeation_days).should include(:sunday)
+    end
+  end
+
   context "#create" do
     context "repeat in week" do
       let(:recurring) do
@@ -81,12 +90,95 @@ describe Recurring do
   end
 
   context "#next_occur" do
-    let(:today) {}
-    let(:daily) {}
-    let(:weekly) {}
-    let(:monthly) {}
+    let(:monthly) {
+      options = {}.tap do |option|
+        option[:repeat_in] = RepeatIn::MONTHLY
+        option[:hour] = "00:00"
+        option[:begin_day] = Date.today
+        option[:itinerary] = Itinerary.new
+        option[:sunday] = true
+      end
+      Recurring.new(options)
+    }
 
     it { should respond_to(:next_occur) }
+
+    it "for today" do
+      options = {:repeat_in => RepeatIn::TODAY, :hour => "00:00", :begin_day => Date.today, :itinerary => Itinerary.new}
+      recurring = Recurring.new(options)
+      recurring.next_occur.should == DateTime.now.beginning_of_day
+    end
+
+    context "for daily" do
+      it "when it has not yet occurred" do
+        hour = "#{Time.now + 1.hour}"
+        recurring = Recurring.new({:repeat_in => RepeatIn::DAILY,
+                                   :hour => hour, :begin_day => Date.tomorrow,
+                                   :itinerary => Itinerary.new})
+        expected_date = Time.parse("#{Date.tomorrow} #{hour}")
+        recurring.next_occur.should == expected_date
+      end
+
+      it "when it is on the next day" do
+        hour = "#{Time.now - 1.hour}"
+        recurring = Recurring.new({:repeat_in => RepeatIn::DAILY,
+                                   :hour => hour, :begin_day => Date.today,
+                                   :itinerary => Itinerary.new})
+        expected_date = Time.parse("#{Date.today + 1.day} #{hour}").to_time
+        recurring.next_occur.should == expected_date
+      end
+    end
+
+    it "for weekly" do
+      hour = "#{Time.now.hour}:00"
+      today = Date.today
+      options = {}.tap do |option|
+        option[:repeat_in] = RepeatIn::WEEKLY
+        option[:hour] = hour
+        option[:begin_day] = today
+        option[:itinerary] = Itinerary.new
+        option[:sunday] = today.sunday?
+        option[:monday] = today.monday?
+        option[:tuesday] = today.tuesday?
+        option[:wednesday] = today.wednesday?
+        option[:thursday] = today.thursday?
+        option[:friday] = today.friday?
+        option[:saturday] = today.saturday?
+      end
+
+      expected_date = DateTime.parse("#{Date.today + 7.day} #{hour}").to_time
+
+      recurring = Recurring.new(options)
+      recurring.next_occur.should == expected_date
+    end
+
+    it "for monthly" do
+      hour = "#{Time.now.hour}:00"
+      today = Date.today
+
+      options = {}.tap do |option|
+        option[:repeat_in] = RepeatIn::MONTHLY
+        option[:hour] = hour
+        option[:begin_day] = today
+        option[:itinerary] = Itinerary.new
+        option[:sunday] = today.sunday?
+        option[:monday] = today.monday?
+        option[:tuesday] = today.tuesday?
+        option[:wednesday] = today.wednesday?
+        option[:thursday] = today.thursday?
+        option[:friday] = today.friday?
+        option[:saturday] = today.saturday?
+      end
+
+      next_date = Date.today + 1.month
+      if next_date.month == 2 && today.day > 28
+        expected_date = DateTime.parse("#{Date.today + 2.month} #{hour}").to_time
+      else
+        expected_date = DateTime.parse("#{Date.today + 1.month} #{hour}").to_time
+      end
+      recurring = Recurring.new(options)
+      recurring.next_occur.should == expected_date
+    end
 
   end
 
