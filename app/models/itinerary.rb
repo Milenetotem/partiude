@@ -26,19 +26,11 @@ class Itinerary < ActiveRecord::Base
   validates_length_of :participants, :maximum => 5, :if => :transport_type_car?
 
   def origin_coordinates
-    [].tap do |coord|
-      coordination = Geocoder.search(origin)[0]
-      coord[0] = coordination.latitude
-      coord[1] = coordination.longitude
-    end if origin.present?
+    coordinations_for(origin) if origin.present?
   end
 
   def destiny_coordinates
-    [].tap do |coord|
-      coordination = Geocoder.search(destiny)[0]
-      coord[0] = coordination.latitude
-      coord[1] = coordination.longitude
-    end if destiny.present?
+    coordinations_for(origin) if destiny.present?
   end
 
   def add_participant(participant)
@@ -53,6 +45,11 @@ private
   def check_origin_and_destiny_address
     errors.add(:origin, :invalid_address) unless origin_coordinates.present?
     errors.add(:destiny, :invalid_address) unless destiny_coordinates.present?
+  end
+
+  def coordinations_for(address)
+    coordination = Geocoder.search(address)[0]
+    [coordination.latitude, coordination.longitude] if coordination.present?
   end
 
 end

@@ -23,6 +23,16 @@ class Recurring < ActiveRecord::Base
     end
   end
 
+  def repeation_days
+    DaysOfWeek.list.collect do |day|
+      day.to_sym if send(day.to_sym)
+    end.compact
+  end
+
+  def start
+    DateTime.parse("#{begin_day.to_date} #{hour}").utc
+  end
+
 private
   def rule
     case repeat_in
@@ -45,16 +55,6 @@ private
     if repeat_in_monthly? && repeation_days.size != 1
       errors.add(:repeat_in, :select_only_one_day)
     end
-  end
-
-  def start
-    DateTime.parse("#{begin_day.to_date} #{hour}").utc
-  end
-
-  def repeation_days
-    DaysOfWeek.list.collect do |day|
-      day.to_sym if send day.to_sym
-    end.compact
   end
 
 end

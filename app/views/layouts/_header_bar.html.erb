@@ -1,21 +1,7 @@
 <div class="contain-to-grid">
   <nav class="top-bar">
-      
-
       <section>
-        <ul class="left">
-          <li class="divider"></li>
-          <li>
-            <%= link_to(I18n.t("itinerary.view_mine".to_sym), itineraries_path, :class => "active") %>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <%= link_to(I18n.t(:search_itineraries), itineraries_path, :class => "active") %>
-          </li>
-          <li class="divider"></li>
-        </ul>
-
-        <!-- Right Nav Section -->
+        <%= render :partial => 'layouts/itineraries_links' if current_user.present? %>
         <ul class="right">
           <li class="divider"></li>
           <li class="has-dropdown">
@@ -30,11 +16,5 @@
           </li>
         </ul>
       </section>
-     <!-- <ul>
-        <li class="name">
-            <a href="#" class="small radius button">Login</a>
-        </li>
-        <li class="toggle-topbar"><a href="#"></a></li>
-      </ul>-->
   </nav>
 </div>

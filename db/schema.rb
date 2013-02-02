@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122020126) do
+ActiveRecord::Schema.define(:version => 20130201150737) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -66,18 +66,31 @@ ActiveRecord::Schema.define(:version => 20130122020126) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                                 :default => "",     :null => false
+    t.string   "encrypted_password",                    :default => "",     :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+    t.string   "nickname",               :limit => 50
+    t.string   "name",                   :limit => 50
+    t.string   "last_name",              :limit => 100
+    t.string   "address",                :limit => 150
+    t.string   "city",                   :limit => 20
+    t.string   "territory",              :limit => 20
+    t.string   "phone",                  :limit => 15
+    t.string   "federal_id",             :limit => 20
+    t.string   "subscription_mode",                     :default => "free"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

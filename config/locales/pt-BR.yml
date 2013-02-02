@@ -88,6 +88,10 @@
     has_one: "Este itinerário tem um participante!"
     has_none: "Ainda não tem nenhum participante, seja o primeiro!"
 
+  recurring:
+    when_it_happen: "Começa dia %{date} e repete no(s) dias %{days}"
+    and_reocurr_than: "E a próxima vez que acontece é %{date}"
+
 
   alerts:
     successfully_created: "Yey! %{model} criado com sucesso!"
@@ -119,11 +123,118 @@
       daily: "Todo dia"
       weekly: "Semanal"
       monthly: "Mensal"
+    subscription_mode:
+      free: "Gratuito"
+      paid: "Pago"
 
   devise:
     sessions:
-      signed_in: 'Yey, vocês está conectado!'
+      sign_out: "Desconectar"
+      signed_in: "Yey, vocês está conectado!"
+      signed_out: "Vocês se desconectou, até a próxima ;-)"
     failure:
       user:
         invalid: "Usuário inválido"
         unauthenticated: "Você precisa fazer o login primeiro"
+
+  date:
+    input:
+      formats:
+        - :default
+        - :long
+        - :short
+
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %B"
+      long: "%d de %B de %Y"
+
+    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
+
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    input:
+      formats:
+        - :default
+        - :long
+        - :short
+        - :time
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      long: "%A, %d de %B de %Y, %H:%M h"
+      short: "%d/%m, %H:%M h"
+      hour: "%H:%M h"
+    am: ""
+    pm: ""
+
+  datetime:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      date: "%d/%m/%Y"
+
+    distance_in_words:
+      half_a_minute: "meio minuto"
+      less_than_x_seconds:
+        one: "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+
+      x_seconds:
+        one: "1 segundo"
+        other: "%{count} segundos"
+
+      less_than_x_minutes:
+        one: "menos de um minuto"
+        other: "menos de %{count} minutos"
+
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+
+      about_x_hours:
+        one: "aproximadamente 1 hora"
+        other: "aproximadamente %{count} horas"
+
+      x_days:
+        one: "1 dia"
+        other: "%{count} dias"
+
+      about_x_months:
+        one: "aproximadamente 1 mês"
+        other: "aproximadamente %{count} meses"
+
+      x_months:
+        one: "1 mês"
+        other: "%{count} meses"
+
+      about_x_years:
+        one: "aproximadamente 1 ano"
+        other: "aproximadamente %{count} anos"
+
+      over_x_years:
+        one: "mais de 1 ano"
+        other: "mais de %{count} anos"
+
+      almost_x_years:
+        one: "quase 1 ano"
+        other: "quase %{count} anos"
+
+    prompts:
+      year: "Ano"
+      month: "Mês"
+      day: "Dia"
+      hour: "Hora"
+      minute: "Minuto"
+      second: "Segundos"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: " e "
