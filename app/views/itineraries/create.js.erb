@@ -1,0 +1,12 @@
+<% if @itinerary.errors.present? %>
+  $("#add-itinerary-fieldset").find("div.alert").remove();
+  var errors = '<%= j render(:partial => 'shared/form_alerts', :locals => {:entity => @itinerary}) %>';
+  $("#add-itinerary-fieldset").prepend(errors);
+<% else %>
+  var newItinerary = '<%= j render(@itinerary) %>';
+  $("div.itineraries-list").prepend(newItinerary);
+  <% @itinerary = Itinerary.new(:recurring => Recurring.new) %>
+  $("div.itineraries-form").html("<%= j render(:partial => 'itineraries/form') %>");
+  new RecurringSelector($("#recurring_repeat_in")).loadFields();
+  $(document).foundationCustomForms();
+<% end %>

@@ -1,0 +1,22 @@
+<ul class="left">
+  <li class="divider"></li>
+  <li>
+    <%= link_to(I18n.t("itinerary.view_mine".to_sym), itineraries_path, :class => "active") %>
+  </li>
+  <li class="divider"></li>
+  <li>
+    <%= link_to(I18n.t(:search_itineraries), itineraries_path, :class => "active") %>
+  </li>
+  <li class="divider"></li>
+</ul>
+<% if user_signed_in? %>
+  <ul class="right">
+    <li class="divider"></li>
+    <li>
+        <%= link_to(I18n.t("devise.sessions.sign_out".to_sym), destroy_user_session_path, :class => "active", :method => :delete) %>
+    </li>
+    <li>
+        <%= link_to("Teste", edit_user_registration_path, :class => "active", :method => :delete) %>
+    </li>
+  </ul>
+<% end %>
