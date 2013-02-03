@@ -21,6 +21,7 @@
       user:
         remember_me: "Me mantenha logado"
         password: "Senha"
+        password_confirmation: "Confirmação da senha"
         email: "Email"
       recurring:
         begin_day: "Data"

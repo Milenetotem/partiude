@@ -36,7 +36,6 @@ ItineraryMap.prototype.render = function() {
       console.log("something goes wrong... =/");
     }
   });
-
 };
 
 RecurringSelector = function RecurringSelector(element){

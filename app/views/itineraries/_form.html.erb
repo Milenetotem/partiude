@@ -1,25 +1,18 @@
-
-  <div class="row">
-      <div class="seven columns offset-by-five">
-        <%= form_for(@itinerary, :builder => ItineraryFormBuilder, :html => {:class => "custom"}) do |f| %>
-          <fieldset  id="add-route">
-            <legend><%= "#{I18n.t(:new)} #{Itinerary.model_name.human}" %></legend>
-            <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary, :method => 'post' } %>
-            <%= f.text_field :name, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:name)}" %>
-            <%= f.transport_type_field %>
-            <%= f.text_field :origin, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
-            <%= f.text_field :destiny, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
-            <p><a href="#">Ver mapa</a></p>
-            <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring } %>
-            <%= f.submit :class=>"radius button twelve ", :value=>"#{I18n.t(:create)}" %>
-          </fieldset>
-        <% end %>
-      </div>
-  </div>
+<div class="twelve columns">
+  <%= form_for(@itinerary, :builder => ItineraryFormBuilder, :remote => true, :html => {:class => "custom"}) do |f| %>
+    <fieldset  id="add-itinerary-fieldset">
+      <legend><%= "#{I18n.t(:new)} #{Itinerary.model_name.human}" %></legend>
+      <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary } %>
+      <%= f.text_field :name, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:name)}" %>
+      <%= f.transport_type_field %>
+      <%= f.text_field :origin, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
+      <%= f.text_field :destiny, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
+      <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring } %>
+      <%= f.submit :class=>"radius button four offset-by-eight", :value=>"#{I18n.t(:create)}" %>
+    </fieldset>
+  <% end %>
+</div>
 
 <% content_for :js do %>
-  <script type="text/javascript">
-    var selector = new RecurringSelector($("#recurring_repeat_in"));
-    selector.loadFields();
-  </script>
+  <%= javascript_include_tag "itinerary.form.js" %>
 <% end %>

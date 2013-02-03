@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -17,6 +14,14 @@ class User < ActiveRecord::Base
 
   validates_attachment_size :avatar, :less_than => 2.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+
+  validates_presence_of :name
+  validates_presence_of :lastname
+  validates_presence_of :nickname
+  validates_presence_of :address
+  validates_presence_of :city
+  validates_presence_of :territory
+  validates_presence_of :federal_id
 
   def admin?
    email.eql? "dev@partiu.de"

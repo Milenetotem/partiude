@@ -11,8 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require foundation
 //= require jquery_ujs
+//= require foundation
 //= require jquery.ui.all
 //= require jquery.ui.datepicker-pt-BR
 //= require jquery.timepicker.min
