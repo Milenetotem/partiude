@@ -19,6 +19,6 @@
 //= require ui.mask
 //= require form
 //= require itineraries
-//= require_tree .
+//= require itinerary.form
 
 
