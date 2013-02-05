@@ -33,7 +33,7 @@ h1, h2, h3, h4 {
 }
 .itinerary-group {
   padding: 10px 5px;
-  &:hover{ 
+  &:hover{
     background-color: #F1F2EB;
     border-top: 1px solid #ccc;
   }
@@ -45,7 +45,7 @@ h1, h2, h3, h4 {
 .itinerary-group-info.row {
   border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
-} 
+}
 .itinerary-buttons {
   margin-top: 10px;
 }
@@ -138,16 +138,50 @@ dl.sub-nav.transport {
   img { max-width: none; height: auto }
   margin: 0 0 20px 0;
 }
-.checkbox{
+
+#group-users .left {
+  margin: 0 5px 5px 0;
+}
+
+#group-title {
+  margin: 20px 0 10px 0;
+}
+
+#group-transport {
+  margin: -30px 0 0 0;
+}
+
+@mixin checkbox{
   display: inline;
   margin-top: 0;
+
+  span{
+    float:left;
+  }
+}
+
+div.checkbox{
+  @include checkbox;
+}
+
+.day_of_week{
+  @include checkbox;
+  &:last-child {
+    float: left !important;
+  }
 }
 .avatar{
   width: 35px;
   height: 35px;
 }
-.check_box_span{
-  padding-left: 5px;
+
+.itinerary-header{
+  display: inline;
+}
+
+.itinerary-container{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .invisible{

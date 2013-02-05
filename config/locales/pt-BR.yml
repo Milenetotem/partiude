@@ -11,6 +11,7 @@
       itinerary: &itinerary "Trajeto"
       user: &user "Usuário"
       recurring: &recurring "Recorrência"
+      participant: &participant "Participante"
 
     attributes:
       itinerary:
@@ -81,6 +82,12 @@
   sign_in_as: "Entrar como:"
   search_itineraries: "Encontrar trajetos"
 
+  partiude:
+    who_we_are: "Quem somos"
+    plans: "Planos"
+    partners: "Parceiros"
+    contact: "Contato"
+
   itinerary:
     view_mine: "Meus trajetos"
     view: "Ver grupo"
@@ -88,6 +95,10 @@
     has_many: "Este itinerário tem %{number} participantes!"
     has_one: "Este itinerário tem um participante!"
     has_none: "Ainda não tem nenhum participante, seja o primeiro!"
+
+  participant:
+    are_you_driving: "Você vai dirigir?"
+
 
   recurring:
     when_it_happen: "Começa dia %{date} e repete no(s) dias %{days}"

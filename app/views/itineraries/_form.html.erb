@@ -5,6 +5,10 @@
       <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary } %>
       <%= f.text_field :name, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:name)}" %>
       <%= f.transport_type_field %>
+      <div class="checkbox">
+        <%= check_box_tag :can_drive, :class => "radius six", :value => false %>
+        <%= label_tag I18n.t("participant.are_you_driving".to_sym) %>
+      </div>
       <%= f.text_field :origin, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
       <%= f.text_field :destiny, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
       <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring } %>
