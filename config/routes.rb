@@ -5,5 +5,6 @@ Partiude::Application.routes.draw do
 
   root :to => 'index#index'
 
-  resources :itineraries
+  resources :itineraries, :except => :edit
+  resources :users, :only => :show
 end
