@@ -1,4 +1,4 @@
-<div class="contain-to-grid">
+<div class="contain-to-grid fixed">
   <nav class="top-bar">
       <section>
         <%= render :partial => 'layouts/itineraries_links' if current_user.present? %>
@@ -7,10 +7,10 @@
           <li class="has-dropdown">
             <a href="#">Partiu.de</a>
             <ul class="dropdown">
-              <li><a href="#">Quem somos</a></li>
-              <li><a href="#">Planos</a></li>
-              <li><a href="#">Parceiros</a></li>
-              <li><a href="#">Contato</a></li>
+              <li><a href="#"><%= I18n.t("partiude.who_we_are".to_sym) %></a></li>
+              <li><a href="#"><%= I18n.t("partiude.plans".to_sym) %></a></li>
+              <li><a href="#"><%= I18n.t("partiude.partners".to_sym) %></a></li>
+              <li><a href="#"><%= I18n.t("partiude.contact".to_sym) %></a></li>
               <li class="divider"></li>
             </ul>
           </li>
