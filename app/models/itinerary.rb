@@ -8,7 +8,7 @@ class Itinerary < ActiveRecord::Base
 
   has_one :recurring
 
-  has_enumeration_for :transport_type, :create_helpers => {:prefix => true}
+  has_enumeration_for :transport_type, :create_scopes => true, :create_helpers => {:prefix => true}
   has_enumeration_for :state, :create_helpers => {:prefix => true}
 
   accepts_nested_attributes_for :points, :allow_destroy => true
@@ -24,6 +24,8 @@ class Itinerary < ActiveRecord::Base
   validate :check_origin_and_destiny_address, :on => :create
   validates_length_of :participants, :minimum => 1, :allow_nil => false
   validates_length_of :participants, :maximum => 5, :if => :transport_type_car?
+
+  validates_uniqueness_of :user_id, :scope => :itinerary_id
 
   def origin_coordinates
     coordinations_for(origin) if origin.present?
