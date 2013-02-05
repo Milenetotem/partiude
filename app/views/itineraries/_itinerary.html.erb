@@ -1,39 +1,33 @@
-<div class="columns twelve itenerary-container">
+<div class="columns twelve itenerary-container ">
   <div class="row">
-    <div class="twelve columns itinerary-header">
-      <%= transport_type_img(itinerary.transport_type) %>
-      <h3 class="columns subheader"><%= itinerary.name %></h3>
-      <div class="one column end">
-        <a href="#"><%= image_tag "status-aguardando.png" %></a>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="info-address row">
-      <div class="four columns">
-        <div class="eight columns end">
-          <div class="icon-origin"></div>
-          <p><%= itinerary.origin %></p>
+    <div class="twelve columns itinerary-group">
+      <div class="row">
+        <div class="twelve columns itinerary-header">
+          <%= transport_type_img(itinerary.transport_type) %>
+          <h3 class="columns subheader"><%= itinerary.name %></h3>
+          <div class="one column end">
+            <a href="#"><%= image_tag "status-aguardando.png" %></a>
+          </div>
+          <div class="itinerary-buttons two columns">
+            <!--<a href="#" class="radius button"><%= I18n.t("itinerary.similars".to_sym) %></a>-->
+            <%= link_to(I18n.t("itinerary.view".to_sym), itinerary, :class => "radius button") %>
+        </div>
         </div>
       </div>
-      <div class="four columns">
-        <div class="eight columns end">
-          <div class="icon-destiny"></div>
-          <p><%= itinerary.destiny %></p>
-        </div>
-      </div>
-      <div class="four columns">
-        <%= render :partial => 'itineraries/recurring', :locals => {:recurring => itinerary.recurring} %>
-      </div>
-    </div>
-    <div class="info-freq row">
-      <div class="eight columns">
-        <p><strong><%= Itinerary.human_attribute_name(:participants) %></strong></p>
-        <%= show_participants(itinerary) %>
-      </div>
-      <div class="four columns">
-        <%= link_to(I18n.t("itinerary.view".to_sym), itinerary, :class => "radius button") %>
-        <a href="#" class="radius button"><%= I18n.t("itinerary.similars".to_sym) %></a>
+      <div class="itinerary-group-info row">
+            <div class="three columns">
+              <div class="icon-origin description-marker"></div>
+              <h5>Origem</h5>
+              <p><%= itinerary.origin %></p>
+            </div>
+          <div class="three columns">
+              <div class=" description-marker icon-destiny "></div>
+              <h5>Destino</h5>
+              <p><%= itinerary.destiny %></p>
+          </div>
+          <div class="six columns">
+            <%= render :partial => 'itineraries/recurring', :locals => {:recurring => itinerary.recurring} %>
+          </div>
       </div>
     </div>
   </div>

@@ -20,9 +20,6 @@ h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
 }
-.group {
-  margin:  20px 0;
-}
 .group-info p {
   margin: 0;
   padding: 0;
@@ -30,20 +27,27 @@ h1, h2, h3, h4 {
 .data {
   margin: 10px 0!important;
 }
-.row.group-info {
-  background-color: #F1F2EB;
-  padding: 10px;
+.itinerary-container{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.itinerary-group {
+  padding: 10px 5px;
+  &:hover{ 
+    background-color: #F1F2EB;
+    border-top: 1px solid #ccc;
+  }
+}
+.itinerary-header {
+  margin: 0 0 10px 0;
+  display: inline;
+}
+.itinerary-group-info.row {
+  border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-.info-address {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0 0 0;
-  margin: 10px 0 0 0;
-}
-.info-freq {
-  padding: 10px 0 0 0;
-  margin: 10px 0 0 0;
+} 
+.itinerary-buttons {
+  margin-top: 10px;
 }
 .icon-origin {
   background: image-url("icone-origem.png") no-repeat center center;
@@ -63,8 +67,8 @@ h1, h2, h3, h4 {
 .description-marker {
   float: left;
   margin: 10px 0 0 0;
+  padding: 0 40px 0 0;
 }
-
 .icon-position {
     position: relative;
     float: left;
@@ -75,8 +79,6 @@ h1, h2, h3, h4 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
-
 @mixin transport-type-radio {
   min-width: 45px;
   min-height: 45px;
@@ -92,11 +94,9 @@ dl.sub-nav.transport {
     background: image-url("balao-colorido-carro.png") no-repeat;
   }
 }
-
 .car.selected {
   background: image-url("balao-colorido-carro.png") no-repeat;
 }
-
 .walk{
   @include transport-type-radio;
   background: image-url("balao-ape.png") no-repeat;
@@ -104,11 +104,9 @@ dl.sub-nav.transport {
     background: image-url("balao-colorido-ape.png") no-repeat;
   }
 }
-
 .walk.selected {
   background: image-url("balao-colorido-ape.png") no-repeat !important;
 }
-
 .bike{
   @include transport-type-radio;
   background: image-url("balao-bicicleta.png") no-repeat;
@@ -116,64 +114,38 @@ dl.sub-nav.transport {
     background: image-url("balao-colorido-bicicleta.png") no-repeat;
   }
 }
-
 .bike.selected {
   background: image-url("balao-colorido-bicicleta.png") no-repeat !important;
 }
-
 #add-route, #find-route {
   background: #F1F2EB;
   padding-bottom: 20px;
   margin: 0;
 }
-
+.day_of_week label {
+  font-size: small;
+}
 .middle {
   margin: 12px 0 0 0 !important;
 }
-
 .input_hidden{
   position: absolute;
   left: -999999px;
 }
-
 .itinerary-map {
   width: 100%;
   height: 250px;
   img { max-width: none; height: auto }
   margin: 0 0 20px 0;
 }
-
-#group-users .left {
-  margin: 0 5px 5px 0;
-}
-
-#group-title {
-  margin: 20px 0 10px 0;
-}
-
-#group-transport {
-  margin: -30px 0 0 0;
-}
-
 .checkbox{
   display: inline;
   margin-top: 0;
 }
-
 .avatar{
   width: 35px;
   height: 35px;
 }
-
-.itinerary-header{
-  display: inline;
-}
-
-.itinerary-container{
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
 .check_box_span{
   padding-left: 5px;
 }
