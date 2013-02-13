@@ -5,6 +5,10 @@
 # Active Record
   attributes:
     name: "Nome"
+    password: "Senha"
+    password_confirmation: "Confirmação da senha"
+    email: "Email"
+    remember_me: "Mantenha-me logado"
 
   activerecord:
     models: &models
@@ -20,10 +24,14 @@
         participants: "Participantes"
         transport_type: "Tipo de transporte"
       user:
-        remember_me: "Me mantenha logado"
-        password: "Senha"
-        password_confirmation: "Confirmação da senha"
-        email: "Email"
+        nickname: "Apelido"
+        last_name: "Sobrenome"
+        address: "Endereço"
+        city: "Cidade"
+        territory: "Estado"
+        phone: "Telefone"
+        federal_id: "CPF"
+        avatar: "Avatar"
       recurring:
         begin_day: "Data"
         hour: "Hora"
@@ -69,18 +77,24 @@
         image_invalid: "não é do tipo jpg, png ou gif."
         not_allowed_by_the: "não é permitida pelo %{model}"
         unable_to_delete_due_active_reference: "Não foi possível excluir o registro, pois o mesmo está em uso no cadastro de %{record}."
-        invalid_address: "é um endereço inválido."
+        invalid_address: "é um endereço inválido"
         select_at_least_one_day: "Selecione pelo menos um dia da semana"
+        need_a_driver: "Precisa de pelo menos um motorista"
 
   new: "Novo"
   create: "Adicionar"
   sign_in: "Entrar"
-  sign_up: "Cadastrar-se"
+  sign_up: "Novo usuário"
   recovery_password: "Esqueceu sua senha?"
+  search: "Pesquisar"
   confirmation_not_received: "Não recebeu o email de confirmação?"
   unlock_instructions_not_received: "Não recebeu o email de desbloqueio?"
   sign_in_as: "Entrar como:"
   search_itineraries: "Encontrar trajetos"
+
+  sign_up_form:
+    nickname: "Como você prefere ser chamado?"
+    create: "Cadastrar!"
 
   partiude:
     who_we_are: "Quem somos"
@@ -97,13 +111,11 @@
     has_none: "Ainda não tem nenhum participante, seja o primeiro!"
 
   participant:
-    are_you_driving: "Você vai dirigir?"
-
+    are_you_driving: "Sou o motorista"
 
   recurring:
     when_it_happen: "Começa dia %{date} e repete no(s) dias %{days}"
     and_reocurr_than: "E a próxima vez que acontece é %{date}"
-
 
   alerts:
     successfully_created: "Yey! %{model} criado com sucesso!"
