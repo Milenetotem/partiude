@@ -19,5 +19,3 @@
 //= require ui.mask
 //= require form
 //= require itineraries
-
-

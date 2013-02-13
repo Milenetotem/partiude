@@ -2,25 +2,6 @@ $(function(){
   var dateMask = "##/##/####";
   var timeFormat = "##:##";
 
-  $("div.radio-selector dd span").click(function(){
-    var target = $("div.radio-selector").data("target");
-    $("#"+target).val($(this).data("value"));
-    $("div.radio-selector").find("span").removeClass("selected");
-    $(this).addClass("selected");
-  });
-
-  $("div.radio-selector").each(function(){
-    var target = $(this).data("target");
-
-    var selected = $("#"+target).val();
-    if(selected){
-      var toFind = "span."+$("#"+target).val()+"";
-      console.log(toFind);
-      $(this).find(toFind).addClass("selected");
-    }
-  });
-
-
   $(".datepicker").each(function(){
     $(this).datepicker($.datepicker.regional[ "<%= I18n.locale %>" ]);
     $(this).mask({mask: dateMask});

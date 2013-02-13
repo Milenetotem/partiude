@@ -47,36 +47,60 @@ RecurringSelector.prototype.loadFields = function() {
   var selectedRecurring = $(this._element).val();
   switch(selectedRecurring){
     case "today":
-      $("#recurring_hour").removeClass("invisible");
-      $("#recurring_repeat_weekly_interval").addClass("invisible");
-      $("#recurring_begin_day").addClass("invisible");
+      $(":input[name*='hour']").removeClass("invisible");
+      $(":input[name*='begin_day']").addClass("invisible");
       $("div.day_of_week").each(function(){
         $(this).addClass("invisible");
       });
       break;
     case "daily":
-      $("#recurring_hour").removeClass("invisible");
-      $("#recurring_begin_day").addClass("invisible");
-      $("#recurring_repeat_weekly_interval").addClass("invisible");
+      $(":input[name*='hour']").removeClass("invisible");
+      $(":input[name*='begin_day']").addClass("invisible");
       $("div.day_of_week").each(function(){
         $(this).addClass("invisible");
       });
       break;
     case "weekly":
-      $("#recurring_hour").removeClass("invisible");
-      $("#recurring_begin_day").removeClass("invisible");
-      $("#recurring_repeat_weekly_interval").addClass("invisible");
+      $(":input[name*='hour']").removeClass("invisible");
+      $(":input[name*='begin_day']").removeClass("invisible");
       $("div.day_of_week").each(function(){
         $(this).removeClass("invisible");
       });
       break;
     case "monthly":
-      $("#recurring_hour").removeClass("invisible");
-      $("#recurring_begin_day").removeClass("invisible");
-      $("#recurring_repeat_weekly_interval").removeClass("invisible");
+      $(":input[name*='hour']").removeClass("invisible");
+      $(":input[name*='begin_day']").removeClass("invisible");
       $("div.day_of_week").each(function(){
         $(this).removeClass("invisible");
       });
       break;
   }
 };
+
+
+$(function(){
+
+  $("div.radio-selector dd span").click(function(){
+    var target = $("div.radio-selector").data("target");
+    var value = $(this).data("value");
+    $("#"+target).val(value);
+    $("div.radio-selector").find("span").removeClass("selected");
+    $(this).addClass("selected");
+    if(value == "car"){
+      $("div.driver_checkbox").removeClass("invisible");
+    }else{
+      $("div.driver_checkbox").addClass("invisible");
+    }
+  });
+
+  $("div.radio-selector").each(function(){
+    var target = $(this).data("target");
+
+    var selected = $("#"+target).val();
+    if(selected){
+      var toFind = "span."+$("#"+target).val()+"";
+      $(this).find(toFind).addClass("selected");
+    }
+  });
+
+});

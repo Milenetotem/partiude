@@ -1,2 +1,2 @@
-var selector = new RecurringSelector($("#recurring_repeat_in"));
+var selector = new RecurringSelector($(":input[name*='repeat_in']"));
 selector.loadFields();
