@@ -1,5 +1,7 @@
 <div class="twelve columns">
-  <%= form_for(@itinerary, :builder => ItineraryFormBuilder, :remote => true, :html => {:class => "custom"}) do |f| %>
+  <%= form_for(@itinerary, :url => search_itineraries_path, :builder => ItineraryFormBuilder,
+                :remote => true, :method => :get, :target => :results,
+                :html => {:class => "custom"}) do |f| %>
     <fieldset  id="add-itinerary-fieldset">
       <legend><%= "#{I18n.t(:new)} #{Itinerary.model_name.human}" %></legend>
       <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary } %>
@@ -8,9 +10,12 @@
       <%= f.text_field :origin, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
       <%= f.text_field :destiny, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
       <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring, :nested_form => f } %>
-      <%= f.submit :class=>"radius button four offset-by-eight", :value=>"#{I18n.t(:create)}" %>
+      <%= f.submit I18n.t(:search), :remote => true, :class=>"radius button four offset-by-eight" %>
     </fieldset>
   <% end %>
+</div>
+
+<div class="twelve columns" id="results">
 </div>
 
 <% content_for :js do %>

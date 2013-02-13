@@ -12,9 +12,11 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = Itinerary.new(params[:itinerary])
+    @itinerary = Itinerary.active.new
+    @itinerary.prepare
+    @itinerary.attributes = params[:itinerary]
+
     @itinerary.add_participant(current_user)
-    @itinerary.recurring = Recurring.new(params[:recurring])
     respond_to do |format|
       if @itinerary.save
         format.html { redirect_to itineraries_path, :notice => I18n.t(:"alerts.successfully_created", :model => Itinerary.model_name.human) }
@@ -28,8 +30,13 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-    puts @itinerary
     respond_with @itinerary
+  end
+
+  def search
+    @itinerary = Itinerary.new(:recurring => Recurring.new)
+    @itineraries = Itinerary.search(params[:itinerary]).order("updated_at desc") if params[:itinerary].present?
+    respond_with @itineraries
   end
 
 end

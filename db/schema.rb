@@ -11,12 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205014018) do
+ActiveRecord::Schema.define(:version => 20130212005034) do
+
+  create_table "comment", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "itinerary_id"
+    t.text     "content"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "itinerary_id"
-    t.string   "content",      :limit => 150, :null => false
+    t.string   "content",      :limit => 150
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
@@ -35,9 +43,10 @@ ActiveRecord::Schema.define(:version => 20130205014018) do
   create_table "participants", :force => true do |t|
     t.integer  "user_id"
     t.integer  "itinerary_id"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.boolean  "driver",       :default => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "driver",        :default => false
+    t.string   "participation", :default => "pending"
   end
 
   create_table "points", :force => true do |t|
@@ -47,6 +56,13 @@ ActiveRecord::Schema.define(:version => 20130205014018) do
     t.integer  "itinerary_id"
     t.string   "latitute"
     t.string   "longitude"
+  end
+
+  create_table "polls", :force => true do |t|
+    t.integer  "requestor_id"
+    t.integer  "itinerary_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "recurrings", :force => true do |t|
@@ -106,6 +122,14 @@ ActiveRecord::Schema.define(:version => 20130205014018) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "poll_id"
+    t.boolean  "approve"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
 
   add_foreign_key "points", "itineraries", :name => "fk_points_itinerary_id"
 

@@ -9,7 +9,7 @@ class RecurringFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def day_of_week_check_box(day)
-    content = check_box(day)
+    content = check_box(day, :value => false)
     content += content_tag('label', DaysOfWeek.t(day.to_s))
     content_tag('div', content, :class => "one column invisible day_of_week")
   end

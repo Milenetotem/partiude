@@ -1,8 +1,8 @@
-<%= fields_for(:recurring, recurring, :builder => RecurringFormBuilder) do |f| %>
+<% p recurring %>
+<%= nested_form.fields_for(:recurring_attributes, recurring, :builder => RecurringFormBuilder) do |f| %>
   <%= f.repeat_in_field %>
   <%= f.text_field :hour, :class => "radius six columns timepicker", :placeholder=>"#{Recurring.human_attribute_name(:hour)}" %>
   <%= f.text_field :begin_day, :value => I18n.l(Date.today), :class => "radius six columns datepicker invisible", :placeholder=>"#{Recurring.human_attribute_name(:begin_day)}" %>
-  <%= f.text_field :repeat_weekly_interval, :class => "radius six columns invisible", :placeholder=>"#{Recurring.human_attribute_name(:repeat_weekly_interval)}" %>
 
   <div class="twelve column">
     <%= f.day_of_week_check_box(:sunday) %>
