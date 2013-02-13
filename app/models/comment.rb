@@ -5,6 +5,6 @@ class Comment < ActiveRecord::Base
   belongs_to :itinerary
 
   validates_presence_of :user, :itinerary, :content
-  validates_length_of :content, :minimum => 2, :maximum => 150
+  validates_length_of :content, :minimum => 5, :maximum => 150
 
 end

@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   ACCESSIBLE_ATTRIBUTES = [:email, :password, :password_confirmation,
-                            :remember_me, :name, :lastname, :nickname, :address,
-                            :city, :territory, :phone, :federal_id]
+                            :remember_me, :name, :last_name, :nickname, :address,
+                            :city, :territory, :phone, :federal_id, :avatar]
 
   attr_accessible *ACCESSIBLE_ATTRIBUTES
 
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
 
   validates_presence_of :name
-  validates_presence_of :lastname
+  validates_presence_of :last_name
   validates_presence_of :nickname
   validates_presence_of :address
   validates_presence_of :city
