@@ -94,4 +94,39 @@ describe Itinerary do
 
   end
 
+  context "#add_participant" do
+    let(:itinerary) { Fabricate(:itinerary_bike) }
+    let(:user) { Fabricate(:user) }
+    it "increase participants count when add a new one" do
+      expect {
+        itinerary.add_participant(user)
+      }.to change(Participant, :count).by(2) # Fabricate(:itinerary_bike) creates a initial participant
+    end
+
+    it "throw and exception when participant already exists" do
+      itinerary.add_participant(user)
+      expect {
+        itinerary.add_participant(user)
+        itinerary.save!
+      }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
+
+  context "#already_participating?(user)" do
+    let(:itinerary) { Fabricate(:itinerary_bike) }
+    let(:user) { Fabricate(:user) }
+    let(:another_user) { Fabricate(:user) }
+    before do
+      itinerary.add_participant(user)
+    end
+
+    it "returns true when user is already participanting" do
+      itinerary.already_participating?(user).should be_true
+    end
+
+    it "returns false when user is already participanting" do
+      itinerary.already_participating?(another_user).should be_false
+    end
+  end
+
 end

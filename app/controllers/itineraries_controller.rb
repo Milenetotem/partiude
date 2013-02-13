@@ -39,4 +39,9 @@ class ItinerariesController < ApplicationController
     respond_with @itineraries
   end
 
+  def join
+    @poll = Poll.new(:requestor => current_user, :itinerary_id =>  params[:itinerary_id], :location_point => params[:location_point])
+    @poll.save
+  end
+
 end

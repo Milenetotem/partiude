@@ -13,8 +13,13 @@ module ItinerariesHelper
 
   def show_participants(itinerary)
     participants = itinerary.participants
-    # participants_thumb(participants)
     group_size_greeting(participants)
+  end
+
+  def join_modal
+    if !@itinerary.already_participating? current_user
+      modal_button I18n.t(:"itinerary.join"), "join-modal", :class=>"radius button"
+    end
   end
 
 private

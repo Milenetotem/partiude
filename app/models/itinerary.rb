@@ -38,12 +38,16 @@ class Itinerary < ActiveRecord::Base
     coordinations_for(origin) if destiny.present?
   end
 
-  def add_participant(participant)
-    participants << Participant.new(:itinerary => self, :user => participant)
+  def add_participant(user)
+    participants << Participant.new(:itinerary => self, :user => user)
   end
 
   def prepare
-    build_recurring # unless recurring.present?
+    build_recurring unless recurring.present?
+  end
+
+  def already_participating?(user)
+    users.include? user
   end
 
   def self.search(params)

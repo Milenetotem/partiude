@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212005034) do
+ActiveRecord::Schema.define(:version => 20130213204644) do
 
   create_table "comment", :force => true do |t|
     t.integer  "user_id"
@@ -61,8 +61,9 @@ ActiveRecord::Schema.define(:version => 20130212005034) do
   create_table "polls", :force => true do |t|
     t.integer  "requestor_id"
     t.integer  "itinerary_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.string   "location_point", :limit => 100, :default => "", :null => false
   end
 
   create_table "recurrings", :force => true do |t|

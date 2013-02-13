@@ -17,5 +17,5 @@
 //= require jquery.ui.datepicker-pt-BR
 //= require jquery.timepicker.min
 //= require ui.mask
-//= require form
+//= require general
 //= require itineraries

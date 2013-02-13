@@ -39,6 +39,8 @@
         itinerary: *itinerary
         repeat_in: ""
         repeat_weekly_interval: "Qual semana?"
+      poll:
+        location_point: "Onde você embarca"
 
     errors: &errors
       messages:
@@ -109,6 +111,11 @@
     has_many: "Este itinerário tem %{number} participantes!"
     has_one: "Este itinerário tem um participante!"
     has_none: "Ainda não tem nenhum participante, seja o primeiro!"
+    join: "Entrar!"
+    join_modal:
+      header: "Muito legal saber que você quer participar!"
+      body: "Só que primeiro os participantes do trajeto precisam aprovar a sua participação."
+      location_point: "Onde você embarca?"
 
   participant:
     are_you_driving: "Sou o motorista"
@@ -154,8 +161,8 @@
   devise:
     sessions:
       sign_out: "Desconectar"
-      signed_in: "Yey, vocês está conectado!"
-      signed_out: "Vocês se desconectou, até a próxima ;-)"
+      signed_in: "Yey, você está conectado!"
+      signed_out: "Você se desconectou, até a próxima ;-)"
     failure:
       user:
         invalid: "Usuário inválido"

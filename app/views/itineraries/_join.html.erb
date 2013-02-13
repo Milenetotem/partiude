@@ -1,0 +1,14 @@
+<% if !itinerary.already_participating?(current_user) %>
+  <div id="join-modal" data-closeOnBackgroundClick="true" class="reveal-modal medium">
+    <h2><%= I18n.t(:"itinerary.join_modal.header") %></h2>
+    <p class="lead">
+      <%= I18n.t(:"itinerary.join_modal.body") %>
+    </p>
+    <%= form_tag(itinerary_join_path(itinerary), :remote => true, :class => "custom") do%>
+      <%= label_tag :location_point, I18n.t(:"itinerary.join_modal.location_point") %>
+      <%= text_field_tag :location_point %>
+      <%= submit_tag I18n.t(:"itinerary.join"), :class=>"radius button" %>
+    <% end %>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+<% end %>

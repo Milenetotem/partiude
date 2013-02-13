@@ -13,3 +13,8 @@ $(function(){
   });
 
 });
+
+function showModal(element){
+  var modal = $(element).data("target");
+  $("#"+modal).reveal();
+}

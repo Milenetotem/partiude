@@ -1,7 +1,7 @@
 <div class="row">
-	<div class="twelve columns" id="group-title">
+	<div class="twelve columns group-title">
 		<h3 class="left"><%= @itinerary.name %></h3>
-		<span class="<%= @itinerary.transport_type %> selected left" id="group-transport"></span>
+		<span class="<%= @itinerary.transport_type %> selected left group-transport"></span>
 	</div>
 </div>
 <div class="row">
@@ -14,11 +14,9 @@
 </div>
 <div class="row">
 	<div class="three columns">
-		<div class="row" id="group-users">
-			<h6><%= Itinerary.human_attribute_name(:participants) %></h6>
-			<% @itinerary.participants.each do |participant| %>
-				<%= render :partial => "shared/participant_thumb_large", :locals => {:participant => participant} %>
-			<% end %>
+		<%= render :partial => "itineraries/participants" %>
+		<div class="row">
+			<%= join_modal %>
 		</div>
 	</div>
 	<div class="eight columns offset-by-one">
@@ -49,6 +47,8 @@
 
 	</div>
 </div>
+
+<%= render :partial => 'itineraries/join', :locals => { :itinerary => @itinerary } %>
 
 <% content_for :js do %>
 <script type="text/javascript">

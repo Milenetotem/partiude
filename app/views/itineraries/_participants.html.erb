@@ -1,0 +1,8 @@
+<div class="row group-users">
+  <h6><%= Itinerary.human_attribute_name(:participants) %></h6>
+  <div class="users">
+    <% @itinerary.participants.each do |participant| %>
+      <%= render :partial => "shared/participant_thumb_large", :locals => {:participant => participant} %>
+    <% end %>
+  </div>
+</div>

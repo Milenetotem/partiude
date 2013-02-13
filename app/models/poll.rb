@@ -1,6 +1,6 @@
 class Poll < ActiveRecord::Base
 
-  attr_accessible :requestor, :itinerary
+  attr_accessible :requestor, :itinerary, :location_point, :itinerary_id
   has_many :votes
 
   belongs_to :requestor, :class_name => "User", :foreign_key => "requestor_id"
@@ -8,6 +8,7 @@ class Poll < ActiveRecord::Base
 
   validates_presence_of :requestor
   validates_presence_of :itinerary
+  validates_presence_of :location_point
 
   def approved?
     approval_factor = votes.select(&:approve).size
