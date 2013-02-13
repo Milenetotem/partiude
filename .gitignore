@@ -8,6 +8,9 @@
 /log/*.log
 /tmp
 
+# Ignore paperclip attachments
+/public/attachments
+
 *.rbc
 *.sassc
 .sass-cache
