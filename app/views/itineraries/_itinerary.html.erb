@@ -1,6 +1,6 @@
-<div class="columns twelve itenerary-container ">
-  <div class="row">
-    <div class="twelve columns itinerary-group">
+<div class="itenerary-container columns twelve ">
+  <div class="itinerary-group row">
+    <div class=" twelve columns ">
       <div class="row">
         <div class="twelve columns itinerary-header">
           <%= transport_type_img(itinerary.transport_type) %>
@@ -17,12 +17,12 @@
       <div class="itinerary-group-info row">
             <div class="three columns">
               <div class="icon-origin description-marker"></div>
-              <h5>Origem</h5>
+              <p><strong>Origem</strong></p>
               <p><%= itinerary.origin %></p>
             </div>
           <div class="three columns">
               <div class=" description-marker icon-destiny "></div>
-              <h5>Destino</h5>
+              <p><strong>Destino</strong></p>
               <p><%= itinerary.destiny %></p>
           </div>
           <div class="six columns">

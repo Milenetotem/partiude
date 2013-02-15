@@ -1,50 +1,34 @@
-<div class="row">
-	<div class="twelve columns group-title">
-		<h3 class="left"><%= @itinerary.name %></h3>
-		<span class="<%= @itinerary.transport_type %> selected left group-transport"></span>
-	</div>
-</div>
-<div class="row">
-	<div class="twelve itinerary-map"
+<div class="itinerary-map"
 	  data-origin-coordiation="<%= @itinerary.origin_coordinates %>"
 	  data-destiny-coordiation="<%= @itinerary.destiny_coordinates %>"
 	  data-origin="<%= @itinerary.origin %>"
 	  data-destiny="<%= @itinerary.destiny %>">
-	</div>
 </div>
 <div class="row">
-	<div class="three columns">
-		<%= render :partial => "itineraries/participants" %>
+	<div class="eight columns">#coments e info do user</div>
+	<div class="four columns group-sidebar">
 		<div class="row">
 			<%= join_modal %>
 		</div>
-	</div>
-	<div class="eight columns offset-by-one">
-		<div class="row">
-			<div class="six columns">
-				<div class="icon-origin description-marker">
-				</div>
-				<div class="nine columns">
-					<h6><%= Itinerary.human_attribute_name(:origin) %></h6>
-					<p><%= @itinerary.origin %></p>
-				</div>
-			</div>
-			<div class="six columns">
-				<div class="icon-destiny description-marker">
-				</div>
-				<div class="nine columns">
-					<h6><%= Itinerary.human_attribute_name(:destiny) %></h6>
-					<p> <%= @itinerary.destiny %></p>
-				</div>
-			</div>
-
+		<div class="icon-origin description-marker"></div>
+		<div class="nine columns">
+			<h6><%= Itinerary.human_attribute_name(:origin) %></h6>
+			<p><%= @itinerary.origin %></p>
 		</div>
-		<div class="row">
-			<div class="twelve columns">
-				#coments
-			</div>
+		<div class="icon-destiny description-marker"></div>
+		<div class="nine columns">
+			<h6><%= Itinerary.human_attribute_name(:destiny) %></h6>
+			<p> <%= @itinerary.destiny %></p>
 		</div>
-
+		<div class="group-calendar"><%= image_tag "icone-calendar.png" %></div>
+		<h6>Quando?</h6>
+		<p><%= @itinerary.recurring.repeat_in_humanize %><%= @itinerary.recurring.repeation_days %></p>
+		<div class="group-calendar"><%= image_tag "icone-calendar.png" %></div>
+		<h6>Horário</h6>
+		<p> <%= @itinerary.recurring.hour %></p>
+		<h6>Começou em:</h6>
+		<p> <%= I18n.l(@itinerary.recurring.begin_day) %></p>
+		<%= render :partial => "itineraries/participants" %>
 	</div>
 </div>
 

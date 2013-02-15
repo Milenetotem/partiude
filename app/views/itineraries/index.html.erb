@@ -1,6 +1,11 @@
 <div class="five columns centered itineraries-form">
   <%= render :partial => 'itineraries/form' %>
 </div>
-<div class="itineraries-list">
+<div class="row">
+	<div class="four columns">Estatisticas</div>
+	<div class="four columns">Add novo trajeto</div>
+	<div class="four columns">Plano</div>
+</div>
+<div class="itineraries-list row">
   <%= render(@itineraries) %>
 </div>

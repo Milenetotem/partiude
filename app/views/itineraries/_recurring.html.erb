@@ -1,7 +1,7 @@
 <div class="left"><%= image_tag "icone-calendar.png" %></div>
 <div class="six columns">
   <p><strong><%= recurring.repeat_in_humanize %></strong></p>
-  <p><%= I18n.t(:"recurring.when_it_happen", :date => I18n.l(recurring.start), :days => recurring.repeation_days.collect { |day| DaysOfWeek.t(day.to_s) }.join(", ")) %>
+  <p><%= I18n.t(:"recurring.when_it_happen", :date => I18n.l(recurring.start), :days => recurring.repeation_days.collect { |day| DaysOfWeek.t(day.to_s) }.join(", ")) %></p>
 </div>
 <div class="four columns">
   <p><%= I18n.t(:"recurring.and_reocurr_than", :date => I18n.l(recurring.next_occur)) %></p>
