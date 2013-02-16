@@ -10,3 +10,20 @@ Partiude::Application.configure do
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
 end
+
+attach_options = {}
+attach_options[:url] = ":s3_domain_url"
+attach_options[:storage] = :s3
+attach_options[:s3_permissions] = "public-read"
+attach_options[:s3_credentials] = {
+  :bucket => ENV['AWS_BUCKET'],
+  :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+  :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+}
+
+Paperclip::Attachment.default_options.update(attach_options)
+
+# :bucket => "partiude-bucket",
+# :access_key_id => "AKIAIN6YVYAZWXQHL2ZQ",
+# :secret_access_key => "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"
+

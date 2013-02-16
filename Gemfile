@@ -8,6 +8,7 @@ gem 'enumerate_it'
 gem 'geocoder'
 gem 'ice_cube'
 gem 'paperclip'
+gem 'aws-sdk'
 
 group :test, :development do
   gem 'rspec-rails'
