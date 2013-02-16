@@ -1,46 +1,86 @@
-<h2><%= I18n.t(:sign_up) %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :multipart => true) do |f| %>
-  <%= devise_error_messages! %>
-  <%= render :partial => 'shared/form_alerts', :locals => {:entity => resource} %>
+<div class="row">
+  <div class="five columns centered">
+    <h3><%= I18n.t(:sign_up) %></h3>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :multipart => true) do |f| %>
+      <%= devise_error_messages! %>
+      <%= render :partial => 'shared/form_alerts', :locals => {:entity => resource} %>
+      <fieldset>
+        <legend>Dados pessoais</legend>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.label :nickname, I18n.t(:"sign_up_form.nickname") %>
+            <%= f.text_field :nickname, :placeholder=>"#{Itinerary.human_attribute_name(:nickname)}" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.label :avatar %>
+            <%= f.file_field :avatar %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.text_field :name, :autofocus => true, :placeholder=>"#{Itinerary.human_attribute_name(:name)}"  %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.text_field :last_name, :placeholder=>"#{Itinerary.human_attribute_name(:last_name)}" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.email_field :email, :placeholder=>"#{Itinerary.human_attribute_name(:email)}" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.text_field :federal_id, :placeholder=>"#{Itinerary.human_attribute_name(:federal_id)}" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.text_field :phone, :placeholder=>"#{Itinerary.human_attribute_name(:phone)}" %>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Endereço</legend>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.text_field :address, :placeholder=>"#{Itinerary.human_attribute_name(:address)}" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <%= f.text_field :city,:placeholder=>"#{Itinerary.human_attribute_name(:city)}"%>
+          </div>
+          <div class="six columns">
+            <%= f.text_field :territory, :placeholder=>"#{Itinerary.human_attribute_name(:territory)}" %>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Senha</legend>
+      <div class="row">
+        <div class="six columns">
+          <%= f.password_field :password, :placeholder=>"#{Itinerary.human_attribute_name(:password)}" %>
+        </div>
+        <div class="six columns">
+          <%= f.password_field :password_confirmation, :placeholder=>"#{Itinerary.human_attribute_name(:password_confirmation)}" %>
+        </div>
+      </div>
+      </fieldset>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, :autofocus => true %></div>
-
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
-
-  <div><%= f.label :nickname, I18n.t(:"sign_up_form.nickname") %><br />
-  <%= f.text_field :nickname %></div>
-
-  <div><%= f.label :federal_id %><br />
-  <%= f.text_field :federal_id %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :address %><br />
-  <%= f.text_field :address %></div>
-
-  <div><%= f.label :city %><br />
-  <%= f.text_field :city %></div>
-
-  <div><%= f.label :territory %><br />
-  <%= f.text_field :territory %></div>
-
-  <div><%= f.label :phone %><br />
-  <%= f.text_field :phone %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :avatar %><br />
-  <%= f.file_field :avatar %></div>
-
-  <div><%= f.submit I18n.t(:"sign_up_form.create") %></div>
-<% end %>
+      <div class="row">
+        <div class="six columns offset-by-six">
+          <%= f.submit I18n.t(:"sign_up_form.create"), :class=>"radius button twelve" %>
+        </div>
+      </div>
+    <% end %>
 
 <%= render "devise/shared/links" %>
+  </div>
+</div>
+

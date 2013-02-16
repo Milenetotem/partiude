@@ -15,7 +15,12 @@ h1, h2, h3, h4 {
   z-index: -1;
   height: 100%;
   }
-
+.container {
+  margin: 40px 0;
+}
+.footer {
+  margin-top: 20px;
+}
 #profile p {
   margin: 0;
   padding: 0;
@@ -146,8 +151,8 @@ dl.sub-nav.transport {
   float: left;
   font-size: 18px;
 }
-.group-calendar {
-  margin-right: 20px;
+.group-recurrency {
+  margin: 10px 20px 0 5px;
   float: left;
 }
 .group-transport {
@@ -163,9 +168,6 @@ dl.sub-nav.transport {
 }
 .group-sidebar p {
   margin: 0 0 20px 0;
-}
-.group-sidebar .row {
-  padding-left:10px;
 }
 @mixin checkbox{
   display: inline;
@@ -194,12 +196,13 @@ div.checkbox{
 .itinerary-header{
   display: inline;
 }
-
+.itineraries-header {
+  margin: 40px 0;
+}
 .itinerary-container{
   margin-top: 5px;
   margin-bottom: 5px;
 }
-
 .invisible{
   display: none !important;
 }

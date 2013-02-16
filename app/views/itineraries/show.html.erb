@@ -30,14 +30,14 @@
 		</div>
 		<div class="row">
 			<div class="twelve columns">
-				<div class="group-calendar"><%= image_tag "icone-calendar.png" %></div>
+				<div class="group-recurrency"><%= image_tag "icone-calendar.png" %></div>
 				<h6>Quando?</h6>
 				<p><%= @itinerary.recurring.repeat_in_humanize %><%= @itinerary.recurring.repeation_days %></p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="twelve columns">
-				<div class="group-calendar"><%= image_tag "icone-calendar.png" %></div>
+				<div class="group-recurrency"><%= image_tag "icon-clock.png" %></div>
 				<h6>Horário</h6>
 				<p> <%= @itinerary.recurring.hour %></p>
 			</div>

@@ -1,10 +1,14 @@
 <div class="five columns centered itineraries-form">
-  <%= render :partial => 'itineraries/form' %>
-</div>
-<div class="row">
-	<div class="four columns">Estatisticas</div>
-	<div class="four columns">Add novo trajeto</div>
-	<div class="four columns">Plano</div>
+<!--   <%= render :partial => 'itineraries/form' %>
+ --></div>
+ <div class="itineraries-header">
+	<div class="row">
+		<div class="four columns centered">
+			<h3>Não encontrou um trajeto similar ao seu?</h3>
+			<p>Cadastre o seu trajeto para encontrar outras pessoas e compartilhar essa experiência.</p>
+			<a href="#" class="button radius secondary">Adicionar trajeto</a>
+		</div>
+	</div>
 </div>
 <div class="itineraries-list row">
   <%= render(@itineraries) %>

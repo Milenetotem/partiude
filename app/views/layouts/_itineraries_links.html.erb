@@ -8,12 +8,13 @@
   </li>
   <li class="divider"></li>
   <li>
-    <%= link_to(I18n.t("itinerary.view_mine".to_sym), itineraries_path, :class => "active") %>
+    <%= link_to(I18n.t(:search_itineraries), search_itineraries_path, :class => "active") %>
   </li>
   <li class="divider"></li>
   <li>
-    <%= link_to(I18n.t(:search_itineraries), search_itineraries_path, :class => "active") %>
+    <%= link_to(I18n.t("itinerary.view_mine".to_sym), itineraries_path, :class => "active") %>
   </li>
+  
   <li class="divider"></li>
 </ul>
 <% if user_signed_in? %>
