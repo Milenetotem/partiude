@@ -32,7 +32,9 @@
 			<div class="twelve columns">
 				<div class="group-recurrency"><%= image_tag "icone-calendar.png" %></div>
 				<h6><%= I18n.t(:"recurring.when") %></h6>
-				<p><%= @itinerary.recurring.repeat_in_humanize %><%= @itinerary.recurring.repeation_days %></p>
+				<p>
+					<%= repeat_in_humanize(@itinerary.recurring) %>
+				</p>
 			</div>
 		</div>
 		<div class="row">

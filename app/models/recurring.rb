@@ -26,7 +26,7 @@ class Recurring < ActiveRecord::Base
 
   def repeation_days
     DaysOfWeek.list.collect do |day|
-      day.to_sym if send(day.to_sym)
+      day if send(day.to_sym)
     end.compact
   end
 

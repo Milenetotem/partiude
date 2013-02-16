@@ -22,6 +22,15 @@ module ItinerariesHelper
     end
   end
 
+  def repeat_in_humanize(recurring)
+    content = content_tag('span', recurring.repeat_in_humanize)
+    if recurring.repeat_in_weekly? or recurring.repeat_in_monthly?
+      content += content_tag("br")
+      content += content_tag('span', recurring.repeation_days.collect { |day| DaysOfWeek.t(day) }.join(", "))
+    end
+    content
+  end
+
 private
   def participants_thumb(participants)
   end

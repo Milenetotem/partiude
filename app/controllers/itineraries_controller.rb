@@ -35,7 +35,7 @@ class ItinerariesController < ApplicationController
 
   def search
     @itinerary = Itinerary.new(:recurring => Recurring.new)
-    @itineraries = Itinerary.search(params[:itinerary]).order("updated_at desc") if params[:itinerary].present?
+    @itineraries = ItinerarySearch.search(params[:itinerary]) if params[:itinerary].present?
     respond_with @itineraries
   end
 
