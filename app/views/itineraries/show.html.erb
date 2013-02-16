@@ -10,25 +10,49 @@
 		<div class="row">
 			<%= join_modal %>
 		</div>
-		<div class="icon-origin description-marker"></div>
-		<div class="nine columns">
-			<h6><%= Itinerary.human_attribute_name(:origin) %></h6>
-			<p><%= @itinerary.origin %></p>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="icon-origin description-marker"></div>
+				<div class="nine columns">
+					<h6><%= Itinerary.human_attribute_name(:origin) %></h6>
+					<p><%= @itinerary.origin %></p>
+				</div>
+			</div>
 		</div>
-		<div class="icon-destiny description-marker"></div>
-		<div class="nine columns">
-			<h6><%= Itinerary.human_attribute_name(:destiny) %></h6>
-			<p> <%= @itinerary.destiny %></p>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="icon-destiny description-marker"></div>
+				<div class="nine columns">
+					<h6><%= Itinerary.human_attribute_name(:destiny) %></h6>
+					<p> <%= @itinerary.destiny %></p>
+				</div>
+			</div>
 		</div>
-		<div class="group-calendar"><%= image_tag "icone-calendar.png" %></div>
-		<h6>Quando?</h6>
-		<p><%= @itinerary.recurring.repeat_in_humanize %><%= @itinerary.recurring.repeation_days %></p>
-		<div class="group-calendar"><%= image_tag "icone-calendar.png" %></div>
-		<h6>Horário</h6>
-		<p> <%= @itinerary.recurring.hour %></p>
-		<h6>Começou em:</h6>
-		<p> <%= I18n.l(@itinerary.recurring.begin_day) %></p>
-		<%= render :partial => "itineraries/participants" %>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="group-calendar"><%= image_tag "icone-calendar.png" %></div>
+				<h6>Quando?</h6>
+				<p><%= @itinerary.recurring.repeat_in_humanize %><%= @itinerary.recurring.repeation_days %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="group-calendar"><%= image_tag "icone-calendar.png" %></div>
+				<h6>Horário</h6>
+				<p> <%= @itinerary.recurring.hour %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<h6>Começou em:</h6>
+				<p> <%= I18n.l(@itinerary.recurring.begin_day) %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<%= render :partial => "itineraries/participants" %>
+			</div>
+		</div>
 	</div>
 </div>
 

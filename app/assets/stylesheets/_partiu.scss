@@ -141,8 +141,6 @@ dl.sub-nav.transport {
   img { max-width: none; height: auto }
   margin: 0 0 20px 0;
 }
-
-
 .group-name {
   margin: 10px 10px 0 0;
   float: left;
@@ -154,12 +152,21 @@ dl.sub-nav.transport {
 }
 .group-transport {
   float: left;
+  margin: 5px 0 0 0;
 }
 .group-sidebar{
   border-left: 1px solid #ccc;
   padding-left: 10px;
 }
-
+.group-sidebar h6{
+  margin-bottom: 5px;
+}
+.group-sidebar p {
+  margin: 0 0 20px 0;
+}
+.group-sidebar .row {
+  padding-left:10px;
+}
 @mixin checkbox{
   display: inline;
   margin-top: 0;
@@ -168,11 +175,9 @@ dl.sub-nav.transport {
     float:left;
   }
 }
-
 div.checkbox{
   @include checkbox;
 }
-
 .day_of_week{
   @include checkbox;
   &:last-child {
