@@ -121,6 +121,9 @@
     are_you_driving: "Sou o motorista"
 
   recurring:
+    when: "Quando"
+    at: "Horário"
+    when_started: "Começou em:"
     when_it_happen: "Começa dia %{date} e repete no(s) dias %{days}"
     and_reocurr_than: "E a próxima vez que acontece é %{date}"
 
