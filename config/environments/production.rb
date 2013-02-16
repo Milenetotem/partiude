@@ -22,8 +22,3 @@ attach_options[:s3_credentials] = {
 }
 
 Paperclip::Attachment.default_options.update(attach_options)
-
-# :bucket => "partiude-bucket",
-# :access_key_id => "AKIAIN6YVYAZWXQHL2ZQ",
-# :secret_access_key => "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"
-

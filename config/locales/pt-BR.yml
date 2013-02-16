@@ -197,11 +197,13 @@
         - :long
         - :short
         - :time
+        - :no_time
     formats:
       default: "%d/%m/%Y %H:%M"
       long: "%A, %d de %B de %Y, %H:%M h"
       short: "%d/%m, %H:%M h"
       hour: "%H:%M h"
+      no_time: "%d/%m/%Y"
     am: ""
     pm: ""
 
