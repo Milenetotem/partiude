@@ -10,7 +10,7 @@
         <!--<div class="row">
           <div class="twelve columns">
             <%= f.label :nickname, I18n.t(:"sign_up_form.nickname") %>
-            <%= f.text_field :nickname, :placeholder=>"#{Itinerary.human_attribute_name(:nickname)}" %>
+            <%= f.text_field :nickname, :placeholder=>"#{User.human_attribute_name(:nickname)}" %>
           </div>
         </div>-->
         <div class="row">
@@ -21,43 +21,43 @@
         </div>
         <div class="row">
           <div class="six columns">
-            <%= f.text_field :name, :autofocus => true, :placeholder=>"#{Itinerary.human_attribute_name(:name)}"  %>
+            <%= f.text_field :name, :autofocus => true, :placeholder=>"#{User.human_attribute_name(:name)}"  %>
           </div>
           <div class="six columns">
-            <%= f.text_field :last_name, :placeholder=>"#{Itinerary.human_attribute_name(:last_name)}" %>
+            <%= f.text_field :last_name, :placeholder=>"#{User.human_attribute_name(:last_name)}" %>
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
-            <%= f.email_field :email, :placeholder=>"#{Itinerary.human_attribute_name(:email)}" %>
+            <%= f.email_field :email, :placeholder=>"#{User.human_attribute_name(:email)}" %>
           </div>
         </div>
         <!--<div class="row">
           <div class="twelve columns">
-            <%= f.text_field :federal_id, :placeholder=>"#{Itinerary.human_attribute_name(:federal_id)}" %>
+            <%= f.text_field :federal_id, :placeholder=>"#{User.human_attribute_name(:federal_id)}" %>
           </div>
         </div>-->
         </fieldset>
         <!--
         <div class="row">
           <div class="twelve columns">
-            <%= f.text_field :phone, :placeholder=>"#{Itinerary.human_attribute_name(:phone)}" %>
+            <%= f.text_field :phone, :placeholder=>"#{User.human_attribute_name(:phone)}" %>
           </div>
         </div>
-      
+
       <fieldset>
         <legend>Endereço</legend>
         <div class="row">
           <div class="twelve columns">
-            <%= f.text_field :address, :placeholder=>"#{Itinerary.human_attribute_name(:address)}" %>
+            <%= f.text_field :address, :placeholder=>"#{User.human_attribute_name(:address)}" %>
           </div>
         </div>
         <div class="row">
           <div class="six columns">
-            <%= f.text_field :city,:placeholder=>"#{Itinerary.human_attribute_name(:city)}"%>
+            <%= f.text_field :city,:placeholder=>"#{User.human_attribute_name(:city)}"%>
           </div>
           <div class="six columns">
-            <%= f.text_field :territory, :placeholder=>"#{Itinerary.human_attribute_name(:territory)}" %>
+            <%= f.text_field :territory, :placeholder=>"#{User.human_attribute_name(:territory)}" %>
           </div>
         </div>
       </fieldset>-->
@@ -65,12 +65,12 @@
         <legend>Senha</legend>
       <div class="row">
         <div class="twelve columns">
-          <%= f.password_field :password, :placeholder=>"#{Itinerary.human_attribute_name(:password)}" %>
+          <%= f.password_field :password, :placeholder=>"#{User.human_attribute_name(:password)}" %>
         </div>
       </div>
       <div class="row">
         <div class="twelve columns">
-          <%= f.password_field :password_confirmation, :placeholder=>"#{Itinerary.human_attribute_name(:password_confirmation)}" %>
+          <%= f.password_field :password_confirmation, :placeholder=>"#{User.human_attribute_name(:password_confirmation)}" %>
         </div>
       </div>
       </fieldset>

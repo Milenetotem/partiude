@@ -1,17 +1,28 @@
 <div class="home">
   <div class=" logo row">
-    <div class="four columns centered">      
+    <div class="four columns centered">
       <%= image_tag "idv.png" %>
     </div>
   </div>
   <div class="tagline">
     <div class="row">
-      <div class="five columns">
+      <div class="six columns">
           <h2 >Encontre um grupo para compartilhar o seu trajeto!</h2>
           <h3 class="subheader">Transforme um momento comum em uma nova experiência!</h3>
       </div>
-      <div class="four columns">
-        ~render new~
+      <div class="four columns end">
+        <%= form_for("user", :url => user_session_path) do |f| %>
+          <%= f.text_field :email, :autofocus => true, :placeholder=>"#{User.human_attribute_name(:email)}" %>
+          <%= f.password_field :password, :placeholder=>"#{User.human_attribute_name(:password)}" %>
+          <%= f.submit(I18n.t(:sign_in), :class => "small radius button") %>
+          <div class="row" style="margin: 5px 0px 5px 0px !important;">
+            <div class="twelve columns">
+              <%= f.check_box :remember_me, :class=> "left" %> <%= f.label :remember_me, User.human_attribute_name(:remember_me), :class => "checkbox" %>
+            </div>
+          </div>
+          <%= link_to I18n.t(:sign_up), new_registration_path("user") %><br />
+          <%= link_to I18n.t(:recovery_password), new_password_path("user") %><br />
+        <% end %>
       </div>
     </div>
   </div>

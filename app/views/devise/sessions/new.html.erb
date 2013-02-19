@@ -17,10 +17,10 @@
           <div class="six columns">
           <%= f.submit(I18n.t(:sign_in), :class => "twelve radius button") %>
           </div>
-        </div>  
+        </div>
           <% if devise_mapping.rememberable? %>
             <div class="row">
-              <div class="twelve columns"> 
+              <div class="twelve columns">
                 <%= f.check_box :remember_me, :class=> "left" %> <%= f.label :remember_me, :class => "checkbox" %>
               </div>
             </div>
