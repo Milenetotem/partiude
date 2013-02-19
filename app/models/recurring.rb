@@ -26,7 +26,7 @@ class Recurring < ActiveRecord::Base
 
   def repeation_days
     DaysOfWeek.list.collect do |day|
-      day if send(day.to_sym)
+      day.to_sym if send(day.to_sym)
     end.compact
   end
 
@@ -42,7 +42,7 @@ private
     when RepeatIn::WEEKLY
       IceCube::Rule.weekly.day(*repeation_days)
     when RepeatIn::MONTHLY
-      IceCube::Rule.monthly
+      IceCube::Rule.monthly.day(*repeation_days)
     end
   end
 
