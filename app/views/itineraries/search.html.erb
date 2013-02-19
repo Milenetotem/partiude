@@ -1,23 +1,35 @@
-<div class="twelve columns">
-  <%= form_for(@itinerary, :url => search_itineraries_path, :builder => ItineraryFormBuilder,
-                :remote => true, :method => :get, :target => :results,
-                :html => {:class => "custom"}) do |f| %>
-    <fieldset  id="add-itinerary-fieldset">
-      <legend><%= "#{I18n.t(:new)} #{Itinerary.model_name.human}" %></legend>
-      <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary } %>
-      <%= f.text_field :name, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:name)}" %>
-      <%= f.transport_type_field %>
-      <%= f.text_field :origin, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
-      <%= f.text_field :destiny, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
-      <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring, :nested_form => f } %>
-      <%= f.submit I18n.t(:search), :remote => true, :class=>"radius button four offset-by-eight" %>
-    </fieldset>
-  <% end %>
-</div>
+<div class="row">
+  <div class="ten columns centered">
 
+    <%= form_for(@itinerary, :url => search_itineraries_path, :builder => ItineraryFormBuilder,
+                  :remote => true, :method => :get, :target => :results,
+                  :html => {:class => "custom"}) do |f| %>
+   <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary } %>
+    <div class="row">
+      <%= f.transport_type_field %>
+    </div>  
+    <div class="row">
+      <div class="six columns">
+        <%= f.text_field :origin, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
+      </div>
+      <div class="six columns">
+        <%= f.text_field :destiny, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
+      </div>
+    </div>  
+    <div class="row">
+      <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring, :nested_form => f } %>
+    </div>
+        <div class="row"> 
+          <div class="four columns offset-by-eight">
+            <%= f.submit I18n.t(:search), :remote => true, :class=>"radius button twelve" %> 
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
 <div class="twelve columns" id="results">
 </div>
 
-<% content_for :js do %>
-  <%= javascript_include_tag "itinerary.form.js" %>
-<% end %>
+  <% content_for :js do %>
+    <%= javascript_include_tag "itinerary.form.js" %>
+  <% end %>
