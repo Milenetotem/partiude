@@ -30,18 +30,17 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @polls = Poll.for(@itinerary, current_user)
     respond_with @itinerary
   end
 
   def search
     @itinerary = Itinerary.new(:recurring => Recurring.new)
-    @itineraries = ItinerarySearch.search(params[:itinerary]) if params[:itinerary].present?
+    if params[:itinerary].present?
+      params[:itinerary][:current_user] = current_user
+      @itineraries = ItinerarySearch.search(params[:itinerary])
+    end
     respond_with @itineraries
-  end
-
-  def join
-    @poll = Poll.new(:requestor => current_user, :itinerary_id =>  params[:itinerary_id], :location_point => params[:location_point])
-    @poll.save
   end
 
 end

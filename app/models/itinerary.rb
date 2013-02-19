@@ -8,6 +8,8 @@ class Itinerary < ActiveRecord::Base
   has_many :participants
   has_many :users, :through => :participants
   has_many :comments
+  has_many :polls
+  has_many :requestors, :through => :polls
 
   has_one :recurring, :dependent => :destroy
 
@@ -48,6 +50,10 @@ class Itinerary < ActiveRecord::Base
 
   def already_participating?(user)
     users.include? user
+  end
+
+  def has_pending_poll_for?(user)
+    Poll.active.where(:requestor_id => user.id, :itinerary_id => self.id).size > 0
   end
 
   def self.visible_to(user)

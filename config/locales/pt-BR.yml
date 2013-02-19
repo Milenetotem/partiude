@@ -40,7 +40,9 @@
         repeat_in: ""
         repeat_weekly_interval: "Qual semana?"
       poll:
-        location_point: "Onde você embarca"
+        origin: "Origem"
+        destiny: "Destino"
+
 
     errors: &errors
       messages:

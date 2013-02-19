@@ -5,7 +5,16 @@
 	  data-destiny="<%= @itinerary.destiny %>">
 </div>
 <div class="row">
-	<div class="eight columns">#coments e info do user</div>
+	<div class="eight columns">
+		<div class="row">
+			#coments e info do user
+		</div>
+		<div class="row">
+			<% if @itinerary.already_participating?(current_user) %>
+				<%= render :partial => "itineraries/pending_polls", :locals => {:polls => @polls} %>
+			<% end %>
+		</div>
+	</div>
 	<div class="four columns group-sidebar">
 		<div class="row">
 			<%= join_modal %>

@@ -11,34 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213204644) do
+ActiveRecord::Schema.define(:version => 20130218100539) do
+
+  create_table "comment", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "itinerary_id"
+    t.text     "content"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "itinerary_id"
-    t.string   "content",      :limit => 150, :null => false
+    t.string   "content",      :limit => 150
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
 
   create_table "itineraries", :force => true do |t|
-    t.string   "name",           :null => false
+    t.string   "name",                                 :null => false
     t.string   "transport_type"
-    t.string   "origin",         :null => false
-    t.string   "destiny",        :null => false
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "origin",                               :null => false
+    t.string   "destiny",                              :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "recurring_id"
-    t.string   "state"
+    t.string   "state",          :default => "active"
   end
 
   create_table "participants", :force => true do |t|
     t.integer  "user_id"
     t.integer  "itinerary_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.boolean  "driver",        :default => false
-    t.string   "participation", :default => "pending"
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+    t.boolean  "driver",                       :default => false
+    t.string   "participation",                :default => "pending"
+    t.string   "origin",        :limit => 100, :default => ""
+    t.string   "destiny",       :limit => 100, :default => ""
   end
 
   create_table "points", :force => true do |t|
@@ -48,15 +58,16 @@ ActiveRecord::Schema.define(:version => 20130213204644) do
     t.integer  "itinerary_id"
     t.string   "latitute"
     t.string   "longitude"
-    t.string   "address"
   end
 
   create_table "polls", :force => true do |t|
     t.integer  "requestor_id"
     t.integer  "itinerary_id"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.string   "location_point", :limit => 100, :default => "", :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+    t.string   "origin",       :limit => 100, :default => ""
+    t.string   "destiny",      :limit => 100, :default => ""
+    t.string   "state",        :limit => 10,  :default => "active"
   end
 
   create_table "recurrings", :force => true do |t|
@@ -87,10 +98,8 @@ ActiveRecord::Schema.define(:version => 20130213204644) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
-    t.string   "username",                              :default => "",     :null => false
     t.string   "email",                                 :default => "",     :null => false
     t.string   "encrypted_password",                    :default => "",     :null => false
-    t.boolean  "admin",                                 :default => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

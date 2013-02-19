@@ -4,9 +4,14 @@
     <p class="lead">
       <%= I18n.t(:"itinerary.join_modal.body") %>
     </p>
-    <%= form_tag(itinerary_join_path(itinerary), :remote => true, :class => "custom") do%>
-      <%= label_tag :location_point, I18n.t(:"itinerary.join_modal.location_point") %>
-      <%= text_field_tag :location_point %>
+    <%= form_tag(polls_path, :remote => true, :class => "custom", :method => :post) do %>
+      <%= fields_for :poll do |poll| %>
+        <%= label_tag :origin, Poll.human_attribute_name(:origin) %>
+        <%= poll.text_field :origin %>
+        <%= label_tag :destiny, Poll.human_attribute_name(:destiny) %>
+        <%= poll.text_field :destiny %>
+        <%= poll.hidden_field :itinerary_id, :value => itinerary.id %>
+      <% end %>
       <%= submit_tag I18n.t(:"itinerary.join"), :class=>"radius button" %>
     <% end %>
     <a class="close-reveal-modal">&#215;</a>

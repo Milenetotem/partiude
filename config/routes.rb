@@ -7,7 +7,9 @@ Partiude::Application.routes.draw do
 
   resources :itineraries, :except => :edit do
     get "search", :on => :collection
-    post "join", :member
   end
+
+  resource :polls, :only => [:create, :view]
+
   resources :users, :only => :show
 end

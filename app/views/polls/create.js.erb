@@ -1,4 +1,4 @@
-var form = $("#location_point").parent();
+var form = $("#join-modal > form");
 <% if @poll.errors.present? %>
   $(form).find("div.alert").remove();
   $(form).prepend("<%= j render(:partial => 'shared/form_alerts', :locals => { :entity => @poll }) %>");

@@ -129,4 +129,22 @@ describe Itinerary do
     end
   end
 
+  context "has_pending_poll_for?(user)" do
+    let(:itinerary) { Fabricate(:itinerary_bike) }
+    let(:user) { Fabricate(:user) }
+    let(:another_user) { Fabricate(:user) }
+
+    before(:each) do
+      Fabricate(:poll, :requestor => user, :itinerary => itinerary)
+    end
+
+    it "return true when user has a pending poll" do
+      itinerary.has_pending_poll_for?(user).should be_true
+    end
+
+    it "return false when user has not a pending poll" do
+      itinerary.has_pending_poll_for?(another_user).should be_false
+    end
+  end
+
 end

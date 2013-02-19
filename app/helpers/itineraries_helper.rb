@@ -17,7 +17,7 @@ module ItinerariesHelper
   end
 
   def join_modal
-    if !@itinerary.already_participating? current_user
+    if !@itinerary.already_participating?(current_user) && @itinerary.has_pending_poll_for?(current_user)
       modal_button I18n.t(:"itinerary.join"), "join-modal", :class=>"radius button"
     end
   end
@@ -26,7 +26,7 @@ module ItinerariesHelper
     content = content_tag('span', recurring.repeat_in_humanize)
     if recurring.repeat_in_weekly? or recurring.repeat_in_monthly?
       content += content_tag("br")
-      content += content_tag('span', recurring.repeation_days.collect { |day| DaysOfWeek.t(day) }.join(", "))
+      content += content_tag('span', recurring.repeation_days.collect { |day| DaysOfWeek.t(day.to_s) }.join(", "))
     end
     content
   end

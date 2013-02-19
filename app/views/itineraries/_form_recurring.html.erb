@@ -1,11 +1,10 @@
 <% p recurring %>
 <%= nested_form.fields_for(:recurring_attributes, recurring, :builder => RecurringFormBuilder) do |f| %>
   <div class="row">
-  <%= f.repeat_in_field %>
+    <%= f.repeat_in_field %>
     <div class="six columns">
       <%= f.text_field :hour, :class => "radius twelve timepicker", :placeholder=>"#{Recurring.human_attribute_name(:hour)}" %>
     </div>
-  
   </div>
   <div class="row">
     <div class="six columns">
