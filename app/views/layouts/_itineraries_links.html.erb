@@ -12,6 +12,10 @@
   </li>
   <li class="divider"></li>
   <li>
+   <%= link_to(I18n.t("itinerary.new".to_sym), new_itinerary_path, :class => "active") %>
+  </li>
+  <li class="divider"></li>
+  <li>
     <%= link_to(I18n.t("itinerary.view_mine".to_sym), itineraries_path, :class => "active") %>
   </li>
   

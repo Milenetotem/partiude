@@ -1,11 +1,11 @@
-<div class="contain-to-grid fixed">
+<div class="contain-to-grid ">
   <nav class="top-bar">
       <section>
         <%= render :partial => 'layouts/itineraries_links' if current_user.present? %>
         <ul class="right">
           <li class="divider"></li>
           <li class="has-dropdown">
-            <a href="#">Partiu.de</a>
+            <a href="/">Partiu.de</a>
             <ul class="dropdown">
               <li><a href="#"><%= I18n.t("partiude.who_we_are".to_sym) %></a></li>
               <li><a href="#"><%= I18n.t("partiude.plans".to_sym) %></a></li>

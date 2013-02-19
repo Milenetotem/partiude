@@ -19,11 +19,11 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :last_name
-  validates_presence_of :nickname
-  validates_presence_of :address
-  validates_presence_of :city
-  validates_presence_of :territory
-  validates_presence_of :federal_id
+  #validates_presence_of :nickname
+  #validates_presence_of :address
+  #validates_presence_of :city
+  #validates_presence_of :territory
+  #validates_presence_of :federal_id
 
   def admin?
    email.eql? "dev@partiu.de"

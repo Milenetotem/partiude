@@ -6,7 +6,7 @@
 		<div class="four columns centered">
 			<h3>Não encontrou um trajeto similar ao seu?</h3>
 			<p>Cadastre o seu trajeto para encontrar outras pessoas e compartilhar essa experiência.</p>
-			<a href="#" class="button radius secondary">Adicionar trajeto</a>
+			<%= link_to(I18n.t("itinerary.new".to_sym), new_itinerary_path, :class => "button radius secondary") %>
 		</div>
 	</div>
 </div>

@@ -86,7 +86,7 @@
   new: "Novo"
   create: "Adicionar"
   sign_in: "Entrar"
-  sign_up: "Novo usuário"
+  sign_up: "Faça seu cadastro!"
   recovery_password: "Esqueceu sua senha?"
   search: "Pesquisar"
   confirmation_not_received: "Não recebeu o email de confirmação?"
@@ -105,13 +105,14 @@
     contact: "Contato"
 
   itinerary:
+    new: "Adicionar trajeto"
     view_mine: "Meus trajetos"
     view: "Ver grupo"
     similars: "Ver Similares"
     has_many: "Este itinerário tem %{number} participantes!"
     has_one: "Este itinerário tem um participante!"
     has_none: "Ainda não tem nenhum participante, seja o primeiro!"
-    join: "Entrar!"
+    join: "Ir junto!"
     join_modal:
       header: "Muito legal saber que você quer participar!"
       body: "Só que primeiro os participantes do trajeto precisam aprovar a sua participação."
