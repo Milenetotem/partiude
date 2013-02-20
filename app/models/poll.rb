@@ -34,6 +34,8 @@ class Poll < ActiveRecord::Base
   def self.for(itinerary, user)
     poll_arel_table = Poll.arel_table
     vote_arel_table = Vote.arel_table
+
+    # select (...) not exists (votes for this poll) and (other filters)
     polls = where(Vote.where(
       vote_arel_table[:user_id].eq(user.id).not
     ).where(poll_arel_table[:id].eq(vote_arel_table[:poll_id])).exists.not)

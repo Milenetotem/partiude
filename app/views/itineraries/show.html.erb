@@ -6,13 +6,13 @@
 </div>
 <div class="row">
 	<div class="eight columns">
+		<% if @itinerary.already_participating?(current_user) %>
+			<div class="row">
+					<%= render :partial => "itineraries/pending_polls", :locals => {:polls => @polls} %>
+			</div>
+		<% end %>
 		<div class="row">
 			#coments e info do user
-		</div>
-		<div class="row">
-			<% if @itinerary.already_participating?(current_user) %>
-				<%= render :partial => "itineraries/pending_polls", :locals => {:polls => @polls} %>
-			<% end %>
 		</div>
 	</div>
 	<div class="four columns group-sidebar">

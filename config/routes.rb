@@ -9,7 +9,9 @@ Partiude::Application.routes.draw do
     get "search", :on => :collection
   end
 
-  resource :polls, :only => [:create, :view]
+  resources :polls, :only => [:create, :view] do
+    post "vote", :on => :member
+  end
 
   resources :users, :only => :show
 end

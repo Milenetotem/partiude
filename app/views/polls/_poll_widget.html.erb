@@ -1,1 +1,8 @@
-<%= poll.inspect %>
+<%= "#{Poll.human_attribute_name(:requestor)}?" %> <%= "#{poll.requestor.nickname} (#{poll.requestor.name})" %>
+<br />
+<%= "#{Poll.human_attribute_name(:origin)}:" %> <%= poll.origin %>
+<br />
+<%= "#{Poll.human_attribute_name(:destiny)}:" %> <%= poll.destiny %>
+<%= form_for("vote", :url => vote_poll_path(poll)) do |f| %>
+
+<% end %>
