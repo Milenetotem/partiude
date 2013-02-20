@@ -2,7 +2,14 @@
   <nav class="top-bar">
       <section>
         <%= render :partial => 'layouts/itineraries_links' if current_user.present? %>
+
         <ul class="right">
+          <% if user_signed_in? %>
+    <li class="divider"></li>
+    <li>
+        <%= link_to(I18n.t("devise.sessions.sign_out".to_sym), destroy_user_session_path, :class => "active", :method => :delete) %>
+    </li>
+<% end %>
           <li class="divider"></li>
           <li class="has-dropdown">
             <a href="/">Partiu.de</a>

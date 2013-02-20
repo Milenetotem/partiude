@@ -21,11 +21,4 @@
 
   <li class="divider"></li>
 </ul>
-<% if user_signed_in? %>
-  <ul class="right">
-    <li class="divider"></li>
-    <li>
-        <%= link_to(I18n.t("devise.sessions.sign_out".to_sym), destroy_user_session_path, :class => "active", :method => :delete) %>
-    </li>
-  </ul>
-<% end %>
+
