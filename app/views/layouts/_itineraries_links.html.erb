@@ -1,11 +1,11 @@
 <ul class="left">
-  <li class="has-dropdown"><a href="#"><span class="group-name"><%= @itinerary.name %></span><span class="<%= @itinerary.transport_type %> selected group-transport"></a>
+  <!-- <li class="has-dropdown"><a href="#"><span class="group-name">< @itinerary.name %></span><span class="< @itinerary.transport_type %> selected group-transport"></a>
     <ul class="dropdown">
-      
+
       <li><a href="#">listar nome dos outros trajetos aqui enzo! /comofas?</a></li>
       <li class="divider"></li>
     </ul>
-  </li>
+  </li> -->
   <li class="divider"></li>
   <li>
     <%= link_to(I18n.t(:search_itineraries), search_itineraries_path, :class => "active") %>
@@ -18,7 +18,7 @@
   <li>
     <%= link_to(I18n.t("itinerary.view_mine".to_sym), itineraries_path, :class => "active") %>
   </li>
-  
+
   <li class="divider"></li>
 </ul>
 <% if user_signed_in? %>
