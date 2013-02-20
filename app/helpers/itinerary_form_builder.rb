@@ -10,14 +10,13 @@ class ItineraryFormBuilder < ActionView::Helpers::FormBuilder
     content_tag(:div, transport_content, :class => "six columns radio-selector", :data => additional_data)
   end
 
-private
-
   def driver_component
     driver_content = check_box_tag(:can_drive, :class => "radius six", :value => false)
-    driver_content += label_tag(I18n.t("participant.are_you_driving".to_sym), :for => :can_drive)
+    driver_content += label_tag(:can_drive, I18n.t(:"participant.are_you_driving"))
     content_tag("div", driver_content, :class => "six columns checkbox driver_checkbox invisible")
   end
 
+private
   def transport_type_component
     transport_field_content =  label :transport_type
     transport_field_content += hidden_field(:transport_type, :value => object.transport_type)
