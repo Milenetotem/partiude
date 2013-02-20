@@ -95,10 +95,16 @@
   unlock_instructions_not_received: "Não recebeu o email de desbloqueio?"
   sign_in_as: "Entrar como:"
   search_itineraries: "Encontrar trajetos"
+  edit_profile: "Edite os seus dados ou complete o perfil"
+  cancel_account: "Cancelar conta"
+  unhappy_account: "Não está satisfeito? Nos dê um feedback para que possamos melhorar o aplicativo."
+  send_feedback: "Entrar em contato"
 
   sign_up_form:
     nickname: "Como você prefere ser chamado?"
     create: "Cadastrar!"
+    name: "Nome"
+
 
   partiude:
     who_we_are: "Quem somos"

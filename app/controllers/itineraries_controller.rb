@@ -8,7 +8,6 @@ class ItinerariesController < ApplicationController
   def new
     @itinerary = Itinerary.new(:recurring => Recurring.new)
     @itinerary.add_participant(current_user)
-    render "_form"
   end
 
   def create

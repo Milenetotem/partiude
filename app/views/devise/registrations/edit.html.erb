@@ -1,106 +1,105 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-      <fieldset>
-        <legend>Dados pessoais</legend>
+<div class="margin-content">
+  <div class="row">
+    <div class="twelve columns">
+      <p><%= I18n.t(:edit_profile) %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns user_form">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= devise_error_messages! %>
+        <fieldset >
+          <legend>Dados pessoais</legend>
+          <div class="row">
+            <div class="twelve columns">
+              <%= f.label :nickname, I18n.t(:"sign_up_form.nickname") %>
+              <%= f.text_field :nickname, :placeholder=>"#{Itinerary.human_attribute_name(:nickname)}" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="twelve columns">
+              <%= f.label :avatar %>
+              <%= f.file_field :avatar %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="six columns">
+              <%= f.text_field :name, :autofocus => true, :placeholder=>"#{Itinerary.human_attribute_name(:name)}"  %>
+            </div>
+            <div class="six columns">
+              <%= f.text_field :last_name, :placeholder=>"#{Itinerary.human_attribute_name(:last_name)}" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="twelve columns">
+              <%= f.email_field :email, :placeholder=>"#{Itinerary.human_attribute_name(:email)}" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="twelve columns">
+              <%= f.text_field :federal_id, :placeholder=>"#{Itinerary.human_attribute_name(:federal_id)}" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="twelve columns">
+              <%= f.text_field :phone, :placeholder=>"#{Itinerary.human_attribute_name(:phone)}" %>
+            </div>
+          </div>
+          </fieldset>
+          
+        <fieldset>
+          <legend>Endereço</legend>
+          <div class="row">
+            <div class="twelve columns">
+              <%= f.text_field :address, :placeholder=>"#{Itinerary.human_attribute_name(:address)}" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="six columns">
+              <%= f.text_field :city,:placeholder=>"#{Itinerary.human_attribute_name(:city)}"%>
+            </div>
+            <div class="six columns">
+              <%= f.text_field :territory, :placeholder=>"#{Itinerary.human_attribute_name(:territory)}" %>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Senha</legend>
         <div class="row">
           <div class="twelve columns">
-            <%= f.label :nickname, I18n.t(:"sign_up_form.nickname") %>
-            <%= f.text_field :nickname, :placeholder=>"#{Itinerary.human_attribute_name(:nickname)}" %>
+            <%= f.password_field :password, :placeholder=>"#{Itinerary.human_attribute_name(:password)}", :autocomplete => "off" %>
+            <i>(leave blank if you don't want to change it)</i>
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
-            <%= f.label :avatar %>
-            <%= f.file_field :avatar %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="six columns">
-            <%= f.text_field :name, :autofocus => true, :placeholder=>"#{Itinerary.human_attribute_name(:name)}"  %>
-          </div>
-          <div class="six columns">
-            <%= f.text_field :last_name, :placeholder=>"#{Itinerary.human_attribute_name(:last_name)}" %>
+            <%= f.password_field :password_confirmation, :placeholder=>"#{Itinerary.human_attribute_name(:password_confirmation)}" %>
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
-            <%= f.email_field :email, :placeholder=>"#{Itinerary.human_attribute_name(:email)}" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="twelve columns">
-            <%= f.text_field :federal_id, :placeholder=>"#{Itinerary.human_attribute_name(:federal_id)}" %>
+            <%= f.password_field :current_password, :placeholder=>"#{Itinerary.human_attribute_name(:current_password)}" %>
+            <i>(we need your current password to confirm your changes)</i>
           </div>
         </div>
         </fieldset>
         <div class="row">
-          <div class="twelve columns">
-            <%= f.text_field :phone, :placeholder=>"#{Itinerary.human_attribute_name(:phone)}" %>
+          <div class="six columns offset-by-six">
+            <%= f.submit "Update",  :class=>"radius button twelve" %>
           </div>
         </div>
-      <fieldset>
-        <legend>Endereço</legend>
-        <div class="row">
-          <div class="twelve columns">
-            <%= f.text_field :address, :placeholder=>"#{Itinerary.human_attribute_name(:address)}" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="six columns">
-            <%= f.text_field :city,:placeholder=>"#{Itinerary.human_attribute_name(:city)}"%>
-          </div>
-          <div class="six columns">
-            <%= f.text_field :territory, :placeholder=>"#{Itinerary.human_attribute_name(:territory)}" %>
-          </div>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Senha</legend>
-      <div class="row">
-        <div class="twelve columns">
-          <%= f.password_field :password, :placeholder=>"#{Itinerary.human_attribute_name(:password)}", :autocomplete => "off" %>
-          <i>(leave blank if you don't want to change it)</i>
-        </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns">
-          <%= f.password_field :password_confirmation, :placeholder=>"#{Itinerary.human_attribute_name(:password_confirmation)}" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns">
-          <%= f.password_field :current_password, :placeholder=>"#{Itinerary.human_attribute_name(:current_password)}" %>
-          <i>(we need your current password to confirm your changes)</i>
-        </div>
-      </div>
-      </fieldset>
-      <div class="row">
-        <div class="six columns offset-by-six">
-          <%= f.submit "Update",  :class=>"radius button twelve" %>
-        </div>
-      </div>
+  <% end %>
+    </div>
+    <div class="four columns offset-by-two">
 
+        <p><%= I18n.t(:unhappy_account )%></p>
+        <p><%= link_to I18n.t(:send_feedback) %></p> 
+        <p><%= link_to I18n.t(:cancel_account), registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class=>"secondary radius button" %>.</p>
+      <%= link_to "Back", :back %> 
 
+    </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+</div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>

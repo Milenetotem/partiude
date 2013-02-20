@@ -1,42 +1,43 @@
-
-<div class="row">
-  <div class="nine columns offset-by-one end">
-    <h3>Encontre aqui um grupo para compartilhar o seu trajeto!</h3>
-    <p>Preencha o formulário com os dados do trajeto que gostaria de compartilhar, procuraremos grupos com trajetos similares aos seu! </p>
-    <p>Lembre-se, você pode não encontrar um trajeto igual ao seu, porém um bastante similar!</p>
-  </div>
-</div>
-<div class="row">
-  <div class="ten columns centered">
-    <%= form_for(@itinerary, :url => search_itineraries_path, :builder => ItineraryFormBuilder,
-                  :remote => true, :method => :get, :target => :results,
-                  :html => {:class => "custom"}) do |f| %>
-   <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary } %>
-    <div class="row">
-      <%= f.transport_type_field %>
-    </div>  
-    <div class="row">
-      <div class="six columns">
-        <%= f.text_field :origin, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
-      </div>
-      <div class="six columns">
-        <%= f.text_field :destiny, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
-      </div>
-    </div>  
-    <div class="row">
-      <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring, :nested_form => f } %>
+<div class="margin-content">
+  <div class="row">
+    <div class="nine columns offset-by-one end">
+      <h3>Encontre aqui um grupo para compartilhar o seu trajeto!</h3>
+      <p>Preencha o formulário com os dados do trajeto que gostaria de compartilhar, procuraremos grupos com trajetos similares aos seu! </p>
+      <p>Lembre-se, você pode não encontrar um trajeto igual ao seu, porém um bastante similar!</p>
     </div>
-        <div class="row"> 
-          <div class="four columns offset-by-eight">
-            <%= f.submit I18n.t(:search), :remote => true, :class=>"radius button twelve" %> 
-          </div>
-        </div>
-    <% end %>
   </div>
-</div>
-<div class="twelve columns" id="results">
-</div>
+  <div class="row">
+    <div class="ten columns centered">
+      <%= form_for(@itinerary, :url => search_itineraries_path, :builder => ItineraryFormBuilder,
+                    :remote => true, :method => :get, :target => :results,
+                    :html => {:class => "custom"}) do |f| %>
+     <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary } %>
+      <div class="row">
+        <%= f.transport_type_field %>
+      </div>  
+      <div class="row">
+        <div class="six columns">
+          <%= f.text_field :origin, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
+        </div>
+        <div class="six columns">
+          <%= f.text_field :destiny, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
+        </div>
+      </div>  
+      <div class="row">
+        <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring, :nested_form => f } %>
+      </div>
+          <div class="row"> 
+            <div class="four columns offset-by-eight">
+              <%= f.submit I18n.t(:search), :remote => true, :class=>"radius button twelve" %> 
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="twelve columns" id="results">
+  </div>
 
-  <% content_for :js do %>
-    <%= javascript_include_tag "itinerary.form.js" %>
-  <% end %>
+    <% content_for :js do %>
+      <%= javascript_include_tag "itinerary.form.js" %>
+    <% end %>
+</div>

@@ -1,1 +1,18 @@
-<%= @user.inspect %>
+<div class="margin-content">
+	<div class="row">
+		<div class="five columns">
+			<div class="row">
+				<div class="five columns"><a href="" class="th"><img src='<%= @user.avatar %>' class="twelve"></a> </div>
+				<div class="seven columns">
+					<h4><%= @user.name %> <%= @user.last_name %></h4>
+					<p><%= @user.email %></p>
+					<p><%= @user.city %> <%= @user.territory %></p>
+				</div>
+			</div>
+		</div>
+		<div class="four columns"></div>
+	</div>
+	<div class="itineraries-list row">
+	  <%= render(@user.itineraries) %>
+	</div>
+</div>

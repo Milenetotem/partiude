@@ -1,13 +1,23 @@
-<div class="twelve columns">
+<div class="twelve columns ">
   <%= form_for(@itinerary, :builder => ItineraryFormBuilder, :remote => true, :html => {:class => "custom"}) do |f| %>
-    <fieldset  id="add-itinerary-fieldset">
+    <fieldset>
       <legend><%= "#{I18n.t(:new)} #{Itinerary.model_name.human}" %></legend>
       <%= render :partial => 'shared/form_alerts', :locals => { :entity => @itinerary } %>
       <%= f.text_field :name, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:name)}" %>
-      <%= f.transport_type_field %>
-      <%= f.text_field :origin, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
-      <%= f.text_field :destiny, :class => "radius six", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
-      <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring, :nested_form => f } %>
+      <div class="row">
+        <%= f.transport_type_field %>
+      </div>  
+      <div class="row">
+        <div class="six columns">
+          <%= f.text_field :origin, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:origin)}" %>
+        </div>
+        <div class="six columns">
+          <%= f.text_field :destiny, :class => "radius twelve", :placeholder=>"#{Itinerary.human_attribute_name(:destiny)}" %>
+        </div>
+      </div>  
+      <div class="row">
+        <%= render :partial => "itineraries/form_recurring", :locals => { :recurring => @itinerary.recurring, :nested_form => f } %>
+      </div>
       <%= f.submit :class=>"radius button four offset-by-eight", :value=>"#{I18n.t(:create)}" %>
     </fieldset>
   <% end %>

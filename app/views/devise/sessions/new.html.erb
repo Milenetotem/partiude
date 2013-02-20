@@ -1,33 +1,38 @@
-<div class="row">
-  <div class="five columns centered">
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <div class="row">
-        <div class="twelve columns">
-          <%= f.email_field :email, :placeholder=>"#{Itinerary.human_attribute_name(:email)}" %>
-        </div>
-      </div>
-
-      <div class="row">
+<div class="margin-content">
+  <div class="row">
+    <div class="five columns centered">
+      <h3><%= I18n.t(:sign_in) %></h3>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <div class="row">
           <div class="twelve columns">
-            <%= f.password_field :password, :placeholder=>"#{Itinerary.human_attribute_name(:password)}" %>
+            <%= f.email_field :email, :placeholder=>"#{Itinerary.human_attribute_name(:email)}" %>
           </div>
-      </div>
+        </div>
 
         <div class="row">
-          <div class="six columns">
-          <%= f.submit(I18n.t(:sign_in), :class => "twelve radius button") %>
-          </div>
-        </div>
-          <% if devise_mapping.rememberable? %>
-            <div class="row">
-              <div class="twelve columns">
-                <%= f.check_box :remember_me, :class=> "left" %> <%= f.label :remember_me, :class => "checkbox" %>
-              </div>
+            <div class="twelve columns">
+              <%= f.password_field :password, :placeholder=>"#{Itinerary.human_attribute_name(:password)}" %>
             </div>
-          <% end %>
+        </div>
 
-    <% end %>
+          <div class="row">
+            <div class="six columns">
+            <%= f.submit(I18n.t(:sign_in), :class => "twelve radius button") %>
+            </div>
+          </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="row">
+                <div class="twelve columns">
+                  <%= f.check_box :remember_me, :class=> "left" %> <%= f.label :remember_me, :class => "checkbox" %>
+                </div>
+              </div>
+            <% end %>
 
-    <%= render "devise/shared/links" %>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+      <%= link_to "Back", :back %> 
+
+    </div>
   </div>
 </div>

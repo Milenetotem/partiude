@@ -1,15 +1,14 @@
-<div class="five columns centered itineraries-form">
-<!--   <%= render :partial => 'itineraries/form' %>
- --></div>
- <div class="itineraries-header">
-	<div class="row">
-		<div class="four columns centered">
-			<h3>Não encontrou um trajeto similar ao seu?</h3>
-			<p>Cadastre o seu trajeto para encontrar outras pessoas e compartilhar essa experiência.</p>
-			<%= link_to(I18n.t("itinerary.new".to_sym), new_itinerary_path, :class => "button radius secondary") %>
+<div class="margin-content"> 
+	<div class="itineraries-header">
+		<div class="row">
+			<div class="four columns centered">
+				<h3>Não encontrou um trajeto similar ao seu?</h3>
+				<p>Cadastre o seu trajeto para encontrar outras pessoas e compartilhar essa experiência.</p>
+				<%= link_to(I18n.t("itinerary.new".to_sym), new_itinerary_path, :class => "button radius secondary") %>
+			</div>
 		</div>
-	</div>
 </div>
-<div class="itineraries-list row">
-  <%= render(@itineraries) %>
+	<div class="itineraries-list row">
+	  <%= render(@itineraries) %>
+	</div>
 </div>
