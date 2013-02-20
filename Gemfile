@@ -9,6 +9,7 @@ gem 'geocoder'
 gem 'ice_cube'
 gem 'paperclip'
 gem 'aws-sdk'
+gem "clean_logger"
 
 group :test, :development do
   gem 'rspec-rails'
