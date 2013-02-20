@@ -8,7 +8,7 @@ class Itinerary < ActiveRecord::Base
   has_many :participants
   has_many :users, :through => :participants
   has_many :comments
-  has_many :polls
+  has_many :polls, :dependent => :destroy
   has_many :requestors, :through => :polls
 
   has_one :recurring, :dependent => :destroy

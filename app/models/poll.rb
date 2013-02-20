@@ -32,11 +32,15 @@ class Poll < ActiveRecord::Base
   end
 
   def self.for(itinerary, user)
-    votes = Vote.joins(:poll)
-    votes = votes.where("votes.user_id != ?", user.id)
-    votes = votes.where("polls.requestor_id != ?", user.id)
-    votes = votes.where("polls.itinerary_id = ?", itinerary.id)
-    votes.collect(&:poll)
+    poll_arel_table = Poll.arel_table
+    vote_arel_table = Vote.arel_table
+    polls = where(Vote.where(
+      vote_arel_table[:user_id].eq(user.id).not
+    ).where(poll_arel_table[:id].eq(vote_arel_table[:poll_id])).exists.not)
+    polls = polls.where("polls.requestor_id != ?", user.id)
+    polls = polls.where("polls.itinerary_id = ?", itinerary.id)
+
+    polls
   end
 
 end
