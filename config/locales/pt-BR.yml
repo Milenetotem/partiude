@@ -7,7 +7,7 @@
     name: "Nome"
     password: "Senha"
     password_confirmation: "Confirmação da senha"
-    email: "Email"
+    email: "E-mail"
     remember_me: "Mantenha-me logado"
 
   activerecord:
@@ -35,9 +35,9 @@
       recurring:
         begin_day: "Data"
         hour: "Hora"
-        transport_type: "Meio de Transporte"
+        transport_type: "Tipo de Transporte"
         itinerary: *itinerary
-        repeat_in: ""
+        repeat_in: "repetir em"
         repeat_weekly_interval: "Qual semana?"
       poll:
         requestor: "Quem quer participar"
@@ -92,8 +92,8 @@
   sign_up: "Faça seu cadastro!"
   recovery_password: "Esqueceu sua senha?"
   search: "Pesquisar"
-  confirmation_not_received: "Não recebeu o email de confirmação?"
-  unlock_instructions_not_received: "Não recebeu o email de desbloqueio?"
+  confirmation_not_received: "Não recebeu o e-mail de confirmação?"
+  unlock_instructions_not_received: "Não recebeu o e-mail de desbloqueio?"
   sign_in_as: "Entrar como:"
   search_itineraries: "Encontrar trajetos"
   edit_profile: "Edite os seus dados ou complete o perfil"
@@ -117,7 +117,7 @@
     new: "Adicionar trajeto"
     view_mine: "Meus trajetos"
     view: "Ver grupo"
-    similars: "Ver Similares"
+    similars: "Ver similares"
     has_many: "Este itinerário tem %{number} participantes!"
     has_one: "Este itinerário tem um participante!"
     has_none: "Ainda não tem nenhum participante, seja o primeiro!"
